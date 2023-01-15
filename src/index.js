@@ -4,6 +4,7 @@ import "./reset.scss";
 import "./navegacao.scss";
 import "./fonts.scss";
 import "./conteudoInicial.scss";
+import "./documentacao.scss";
 
 import { useState } from "react";
 
@@ -11,36 +12,48 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Navegacao />
-    <ConteudoInicial />
   </React.StrictMode>
 );
 
 // VOU CRIAR TUDO AQUI E DEPOIS SEPARAR COMO COMPONENTES
 function Navegacao() {
+  const [Inicial, setInicial] = useState(true);
   const [documentacao, setDocumentacao] = useState(false);
   return (
-    <nav>
-      <img src="logo.png" alt="logo" />
-      <h1>Registro</h1>
-      <div className="flexDeNavegacao">
-        <button
+    <React.Fragment>
+      <nav>
+        <img src="logo.png" alt="logo" />
+        <h1
           onClick={() => {
-            if (documentacao) {
-              setDocumentacao(false);
-            } else {
-              setDocumentacao(true);
-            }
+            setInicial(true);
+            setDocumentacao(false);
           }}
         >
-          Documentação
-        </button>
-        <button>Ferramentas</button>
-        <button>Certificados</button>
-        <button>Portfólio</button>
-        <button>Roadmap</button>
-        <button>Contato</button>
-      </div>
-    </nav>
+          Registro
+        </h1>
+        <div className="flexDeNavegacao">
+          <button
+            onClick={() => {
+              if (documentacao) {
+                setDocumentacao(false);
+              } else {
+                setDocumentacao(true);
+                setInicial(false);
+              }
+            }}
+          >
+            Documentação
+          </button>
+          <button>Ferramentas</button>
+          <button>Certificados</button>
+          <button>Portfólio</button>
+          <button>Roadmap</button>
+          <button>Contato</button>
+        </div>
+      </nav>
+      {Inicial ? <ConteudoInicial /> : null}
+      {documentacao ? <Documentacao /> : null}
+    </React.Fragment>
   );
 }
 
@@ -69,6 +82,32 @@ function Documentacao() {
   return (
     <section className="Documentacao">
       <h1>Escolha qual tecnologia você quer acessar</h1>
+      <div className="flexIconesDeDocumentacao">
+        <button>
+          <img src="./jsx.png" alt="jsx" />
+          <h3>JSX</h3>
+        </button>
+        <button>
+          <img src="./css.png" alt="css" />
+          <h3>CSS</h3>
+        </button>
+        <button>
+          <img src="./javascript.png" alt="javascript" />
+          <h3>Javascript</h3>
+        </button>
+        <button>
+          <img src="./react.png" alt="react" />
+          <h3>React</h3>
+        </button>
+        <button>
+          <img src="./php.png" alt="php" />
+          <h3>PHP</h3>
+        </button>
+        <button>
+          <img src="./python.png" alt="python" />
+          <h3>Python</h3>
+        </button>
+      </div>
     </section>
   );
 }
