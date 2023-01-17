@@ -1,6 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React, { useRef, useLayoutEffect } from "react";
+import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import textos from "./components/textos.js";
 
 // CSS
 import "./reset.scss";
@@ -8,6 +9,18 @@ import "./navegacao.scss";
 import "./fonts.scss";
 import "./conteudoInicial.scss";
 import "./documentacao.scss";
+import "./doc.scss";
+import "./secao.scss";
+
+//Imagens
+import logoimg from "./img/logo.png";
+import fotoimg from "./img/foto.jpg";
+import reactimg from "./img/react.png";
+import cssimg from "./img/css.png";
+import javascriptimg from "./img/javascript.png";
+import jsximg from "./img/jsx.png";
+import phpimg from "./img/php.png";
+import pythonimg from "./img/python.png";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -24,12 +37,22 @@ root.render(
       <Route path="/contato" exact element={<Documentacao />} />
 
       {/* Subrotas da documentação */}
-      <Route path="/documentacao/jsx" exact element={<ReactDoc />} />
-      <Route path="/documentacao/css" exact element={<ReactDoc />} />
-      <Route path="/documentacao/javascript" exact element={<ReactDoc />} />
-      <Route path="/documentacao/react" exact element={<ReactDoc />} />
-      <Route path="/documentacao/php" exact element={<ReactDoc />} />
-      <Route path="/documentacao/python" exact element={<ReactDoc />} />
+      <Route path="/documentacao/jsx" exact element={<Doc />} />
+      <Route path="/documentacao/css" exact element={<Doc />} />
+      <Route path="/documentacao/javascript" exact element={<Doc />} />
+      <Route
+        path="/documentacao/react"
+        exact
+        element={
+          <Doc
+            titulo={textos.React.titulo}
+            introducao={textos.React.introducao}
+            img={reactimg}
+          />
+        }
+      />
+      <Route path="/documentacao/php" exact element={<Doc />} />
+      <Route path="/documentacao/python" exact element={<Doc />} />
     </Routes>
   </BrowserRouter>
 );
@@ -39,7 +62,7 @@ function Navegacao() {
   return (
     <React.Fragment>
       <nav>
-        <img src="./logo.png" alt="logo" />
+        <img src={logoimg} alt="logo" />
         <h1>
           <Link to="/">Registro</Link>
         </h1>
@@ -84,7 +107,7 @@ function ConteudoInicial() {
         com facilidade. Bem vindo ao meu site de registro!
       </p>
 
-      <img src="./foto.jpg" alt="Foto do samuel" />
+      <img src={fotoimg} alt="Foto do samuel" />
     </div>
   );
 }
@@ -96,37 +119,37 @@ function Documentacao() {
       <div className="flexIconesDeDocumentacao">
         <button>
           <Link to="/documentacao/jsx">
-            <img src="./jsx.png" alt="jsx" />
+            <img src={jsximg} alt="jsx" />
             <h3>JSX</h3>
           </Link>
         </button>
         <button>
           <Link to="/documentacao/css">
-            <img src="./css.png" alt="css" />
+            <img src={cssimg} alt="css" />
             <h3>CSS</h3>
           </Link>
         </button>
         <button>
           <Link to="/documentacao/javascript">
-            <img src="./javascript.png" alt="javascript" />
+            <img src={javascriptimg} alt="javascript" />
             <h3>Javascript</h3>
           </Link>
         </button>
         <button>
           <Link to="/documentacao/react">
-            <img src="./react.png" alt="react" />
+            <img src={reactimg} alt="react" />
             <h3>React</h3>
           </Link>
         </button>
         <button>
           <Link to="/documentacao/php">
-            <img src="./php.png" alt="php" />
+            <img src={phpimg} alt="php" />
             <h3>PHP</h3>
           </Link>
         </button>
         <button>
           <Link to="/documentacao/python">
-            <img src="./python.png" alt="python" />
+            <img src={pythonimg} alt="python" />
             <h3>Python</h3>
           </Link>
         </button>
@@ -135,17 +158,55 @@ function Documentacao() {
   );
 }
 
-function ReactDoc() {
+function Doc(props) {
   return (
-    <section className="ReactDoc">
-      <h1>React</h1>
-      <p>
-        React é uma biblioteca JavaScript de código aberto com foco em criar
-        interfaces de usuário em páginas web. É mantida pelo Facebook, Instagram
-        e uma comunidade de desenvolvedores individuais e corporativos. É usada
-        no Facebook para produzir interfaces de usuário, e Instagram foi o
-        primeiro aplicativo móvel a usar React Native.
-      </p>
+    <section className="Doc">
+      <div className="DocFlexbox">
+        <img className="Doclogo" src={props.img} alt="react" />
+        <h1 className="DocTitulo">{props.titulo}</h1>
+      </div>
+      <p className="DocIntroducao">{props.introducao}</p>
+      <Secao
+        titulo="estrutura"
+        li1="node_modules: é onde ficam as dependências do projeto"
+        li2="public: é onde o index.html fica"
+        li3="src: é onde fica o código do projeto"
+      />
+    </section>
+  );
+}
+
+function Secao(props) {
+  const containerRef = useRef();
+
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    const li = container.querySelectorAll("li");
+    console.log(li.length);
+
+    for (let i = 0; i < li.length; i++) {
+      console.log(li[i].innerText);
+      if (li[i].innerText == "") {
+        li[i].style.display = "none";
+      }
+    }
+  });
+
+  return (
+    <section className="Secao">
+      <h2 className="TituloDaSecao">{props.titulo}</h2>
+      <ul ref={containerRef} className="Uldoc">
+        <li>{props.li1}</li>
+        <li>{props.li2}</li>
+        <li>{props.li3}</li>
+        <li>{props.li4}</li>
+        <li>{props.li5}</li>
+        <li>{props.li6}</li>
+        <li>{props.li7}</li>
+        <li>{props.li8}</li>
+        <li>{props.li9}</li>
+        <li>{props.li10}</li>
+      </ul>
     </section>
   );
 }

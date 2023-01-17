@@ -1,0 +1,28 @@
+.Doc {
+  position: relative;
+  left: 2%;
+  .DocFlexbox {
+    display: flex;
+    place-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    .Doclogo {
+      height: 4rem;
+    }
+    .DocTitulo {
+      text-transform: uppercase;
+      font-size: 3rem;
+      font-family: "Exo 2", sans-serif;
+      letter-spacing: 0.1rem;
+      font-weight: 300;
+      color: #212529;
+    }
+  }
+  .DocIntroducao {
+    // border: 1px solid red;
+    font-family: "Exo 2", sans-serif;
+    font-size: 1.5rem;
+    color: #4d4f4f;
+  }
+}
