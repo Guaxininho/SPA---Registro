@@ -19,6 +19,10 @@ nav {
     color: #4d4f4f;
     margin-right: auto;
     cursor: pointer;
+    a {
+      color: #4d4f4f;
+      text-decoration: none;
+    }
   }
 }
 
@@ -37,5 +41,10 @@ nav {
     font-weight: 300;
     cursor: pointer;
     letter-spacing: 0.07rem;
+
+    a {
+      color: #4d4f4f;
+      text-decoration: none;
+    }
   }
 }
