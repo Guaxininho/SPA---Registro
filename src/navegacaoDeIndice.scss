@@ -1,0 +1,22 @@
+.NavegacaoDeIndice {
+  // border: 1px solid red;
+  position: relative;
+  bottom: 3rem;
+  padding: 1rem 0rem;
+  display: flex;
+  button {
+    // border: 1px solid blue;
+    border: none;
+    background-color: transparent;
+    font-family: "Exo 2", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    cursor: pointer;
+    letter-spacing: 0.07rem;
+    margin-right: 2rem;
+    a {
+      color: #4d4f4f;
+      text-decoration: none;
+    }
+  }
+}

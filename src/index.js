@@ -11,6 +11,7 @@ import "./conteudoInicial.scss";
 import "./documentacao.scss";
 import "./doc.scss";
 import "./secao.scss";
+import "./navegacaoDeIndice.scss";
 
 //Imagens
 import logoimg from "./img/logo.png";
@@ -45,14 +46,60 @@ root.render(
         exact
         element={
           <Doc
+            img={reactimg}
             titulo={textos.React.titulo}
             introducao={textos.React.introducao}
-            img={reactimg}
           />
         }
       />
       <Route path="/documentacao/php" exact element={<Doc />} />
       <Route path="/documentacao/python" exact element={<Doc />} />
+
+      {/* Subrotas das doc's */}
+      {/* React */}
+      <Route
+        path="/documentacao/react/estrutura"
+        exact
+        element={
+          <React.Fragment>
+            <Doc
+              img={reactimg}
+              titulo={textos.React.titulo}
+              introducao={textos.React.introducao}
+            />
+            <Secao
+              titulo="estrutura"
+              li1="node_modules: é onde ficam as dependências do projeto"
+              li2="public: é onde o index.html fica"
+              li3="src: é onde fica o código do projeto"
+            />
+          </React.Fragment>
+        }
+      />
+
+      <Route
+        path="/documentacao/react/regras"
+        exact
+        element={
+          <React.Fragment>
+            <Doc
+              img={reactimg}
+              titulo={textos.React.titulo}
+              introducao={textos.React.introducao}
+            />
+            <Secao
+              titulo="regras"
+              li1="para o react entender que é um componente, a função deve ter nome maiúsculo e retornar um JSX"
+              li2="no react é obrigatório fechar a tag"
+              codigo2={
+                <BlocoDeCodigo codigo="&lt;h1&gt;Hello World!&lt;/h1&gt;" />
+              }
+              li3="mas normalmente vemos a tag de fechamento omitida"
+              codigo3={<BlocoDeCodigo codigo="&lt;h1/&gt;" />}
+            />
+          </React.Fragment>
+        }
+      />
     </Routes>
   </BrowserRouter>
 );
@@ -61,7 +108,7 @@ root.render(
 function Navegacao() {
   return (
     <React.Fragment>
-      <nav>
+      <nav className="NavegacaoPrincipal">
         <img src={logoimg} alt="logo" />
         <h1>
           <Link to="/">Registro</Link>
@@ -161,17 +208,12 @@ function Documentacao() {
 function Doc(props) {
   return (
     <section className="Doc">
+      <NavegacaoDeIndice />
       <div className="DocFlexbox">
         <img className="Doclogo" src={props.img} alt="react" />
         <h1 className="DocTitulo">{props.titulo}</h1>
       </div>
       <p className="DocIntroducao">{props.introducao}</p>
-      <Secao
-        titulo="estrutura"
-        li1="node_modules: é onde ficam as dependências do projeto"
-        li2="public: é onde o index.html fica"
-        li3="src: é onde fica o código do projeto"
-      />
     </section>
   );
 }
@@ -196,17 +238,74 @@ function Secao(props) {
     <section className="Secao">
       <h2 className="TituloDaSecao">{props.titulo}</h2>
       <ul ref={containerRef} className="Uldoc">
-        <li>{props.li1}</li>
-        <li>{props.li2}</li>
-        <li>{props.li3}</li>
-        <li>{props.li4}</li>
-        <li>{props.li5}</li>
-        <li>{props.li6}</li>
-        <li>{props.li7}</li>
-        <li>{props.li8}</li>
-        <li>{props.li9}</li>
-        <li>{props.li10}</li>
+        <li>
+          {props.li1}
+          {props.codigo1}
+        </li>
+        <li>
+          {props.li2}
+          <div className="codigoProp">{props.codigo2}</div>
+        </li>
+        <li>
+          {props.li3}
+          <div className="codigoProp">{props.codigo3}</div>
+        </li>
+        <li>
+          {props.li4}
+          {props.codigo4}
+        </li>
+        <li>
+          {props.li5}
+          {props.codigo5}
+        </li>
+        <li>
+          {props.li6}
+          {props.codigo6}
+        </li>
+        <li>
+          {props.li7}
+          {props.codigo7}
+        </li>
+        <li>
+          {props.li8}
+          {props.codigo8}
+        </li>
+        <li>
+          {props.li9}
+          {props.codigo9}
+        </li>
+        <li>
+          {props.li10}
+          {props.codigo10}
+        </li>
       </ul>
     </section>
+  );
+}
+
+function NavegacaoDeIndice(props) {
+  return (
+    <nav className="NavegacaoDeIndice">
+      <button>
+        <Link to="/documentacao/react/estrutura">Estrutura</Link>
+      </button>
+      <button>
+        <Link to="/documentacao/react/regras">Regras</Link>
+      </button>
+      <button>Iniciando</button>
+      <button>Componentes</button>
+      <button>Props</button>
+      <button>CSS</button>
+      <button></button>
+      <button></button>
+    </nav>
+  );
+}
+
+function BlocoDeCodigo(props) {
+  return (
+    <pre className="BlocoDeCodigo">
+      <code>{props.codigo}</code>
+    </pre>
   );
 }
