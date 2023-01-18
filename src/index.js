@@ -94,8 +94,82 @@ root.render(
               codigo2={
                 <BlocoDeCodigo codigo="&lt;h1&gt;Hello World!&lt;/h1&gt;" />
               }
-              li3="mas normalmente vemos a tag de fechamento omitida"
-              codigo3={<BlocoDeCodigo codigo="&lt;h1/&gt;" />}
+              l2b="mas normalmente vemos a tag de fechamento omitida"
+              codigo2b={<BlocoDeCodigo codigo="&lt;h1/&gt;" />}
+              li3="isso incui tudo que no html não era fechado, como as tags img,
+              input, br e etc. No React, TUDO, literalmente tudo tem que ser
+              fechado."
+              li4="JSX sempre deve retornar apenas um elemento, então se for mais de um elemento deve estar encapsulado em apenas um. Se não quiser que este elemento apareça no html, pode usar um react fragment"
+              li5="Para usar javascript dentro do JSX, usa-se chaves"
+              codigo5={<BlocoDeCodigo codigo="&lt;h1&gt;{1 + 1}&lt;/h1&gt;" />}
+              li6="Para usar eventos no JSX, usa-se o camelCase"
+              codigo6={
+                <BlocoDeCodigo codigo="&lt;button onClick={funcao}&gt;Clique&lt;/button&gt;" />
+              }
+              li7="Para usar atributos (classes para CSS) no JSX, usa-se o camelCase e nome não é class, mas className"
+              codigo7={
+                <BlocoDeCodigo codigo="&lt;button className='botao'&gt;Clique&lt;/button&gt;" />
+              }
+            />
+          </React.Fragment>
+        }
+      />
+
+      <Route
+        path="/documentacao/react/iniciando"
+        exact
+        element={
+          <React.Fragment>
+            <Doc
+              img={reactimg}
+              titulo={textos.React.titulo}
+              introducao={textos.React.introducao}
+            />
+            <Secao
+              titulo="iniciando"
+              li1="escolha o diretório pelo terminal e use o comando"
+              codigo1={
+                <BlocoDeCodigo codigo="npx create-react-app nomedoprojeto" />
+              }
+              li2="mude para a pasta do projeto após a criação e use o comando"
+              codigo2={<BlocoDeCodigo codigo="code ." />}
+              li2b="para abrir o projeto no VSCode, em seguida use este comando para iniciar o server"
+              codigo2b={<BlocoDeCodigo codigo="npm start" />}
+              li3="exclua de dentro da pasta src: app.css, app.js, app.test.js, index.css, logo.svg, reportWebVitals.js e setupTests.js, deixando apenas o index.js"
+              li4="no index.js, apague o import do 'index.css', o import App from './App' e o import reportWebVitals from './reportWebVitals', exclua também o componente <App /> e o reportWebVitals(), a partir daqui é possível criar o projeto do zero, criando seu componente dentro de <React.StrictMode>"
+            />
+          </React.Fragment>
+        }
+      />
+
+      <Route
+        path="/documentacao/react/componentes"
+        exact
+        element={
+          <React.Fragment>
+            <Doc
+              img={reactimg}
+              titulo={textos.React.titulo}
+              introducao={textos.React.introducao}
+            />
+            <Secao
+              titulo="componentes"
+              li1="É possível definir variáveis fora e dentro do componente, mas se for definida dentro, só pode ser usada ali, e se for definida fora, pode ser usada em qualquer lugar do componente. Variáveis definidas fora do componente são globais, e variáveis definidas dentro do componente são locais."
+              codigo1={
+                <BlocoDeCodigo
+                  codigo={`const nomeUm = 'João'; // variável global
+
+                function App(){
+                  const nome = 'Maria'; // variável local do componente
+                  return(
+                    <div>
+                    <h1>Hello {nome}</h1> // vai sair HELLO MARIA
+                    <h1>Hello {nomeUm}</h1> // vai sair HELLO JOAO
+                    </div>
+                )}`}
+                />
+              }
+              li1b="Sempre é preciso retornar um valor, não é possível retornar uma definição de variável por exemplo. Se for preciso retornar uma variável, é preciso retornar o valor dela."
             />
           </React.Fragment>
         }
@@ -228,7 +302,7 @@ function Secao(props) {
 
     for (let i = 0; i < li.length; i++) {
       console.log(li[i].innerText);
-      if (li[i].innerText == "") {
+      if (li[i].innerText === "") {
         li[i].style.display = "none";
       }
     }
@@ -241,14 +315,18 @@ function Secao(props) {
         <li>
           {props.li1}
           {props.codigo1}
+          {props.li1b}
+          {props.codigo1b}
         </li>
         <li>
           {props.li2}
-          <div className="codigoProp">{props.codigo2}</div>
+          {props.codigo2}
+          {props.li2b}
+          {props.codigo2b}
         </li>
         <li>
           {props.li3}
-          <div className="codigoProp">{props.codigo3}</div>
+          {props.codigo3}
         </li>
         <li>
           {props.li4}
@@ -292,8 +370,12 @@ function NavegacaoDeIndice(props) {
       <button>
         <Link to="/documentacao/react/regras">Regras</Link>
       </button>
-      <button>Iniciando</button>
-      <button>Componentes</button>
+      <button>
+        <Link to="/documentacao/react/iniciando">Iniciando</Link>
+      </button>
+      <button>
+        <Link to="/documentacao/react/componentes">Componentes</Link>
+      </button>
       <button>Props</button>
       <button>CSS</button>
       <button></button>
