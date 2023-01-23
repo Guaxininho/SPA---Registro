@@ -1,0 +1,35 @@
+.ferramentasFlex {
+  position: relative;
+  left: 2%;
+  // border: solid red 1px;
+  display: flex;
+  justify-content: space-evenly;
+  // align-content: center;
+}
+
+.BloquinhoImgTexto {
+  // border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  width: 12rem;
+  align-items: center;
+
+  img {
+    height: 5rem;
+    width: 5rem;
+  }
+  h3 {
+    color: #212529;
+    font-family: "Exo 2", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+  p {
+    text-align: center;
+    color: #4d4f4f;
+    font-family: "Exo 2", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+}

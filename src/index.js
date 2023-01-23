@@ -13,6 +13,8 @@ import "./documentacao.scss";
 import "./doc.scss";
 import "./secao.scss";
 import "./navegacaoDeIndice.scss";
+import "./introducao.scss";
+import "./BloquinhoImgTexto.scss";
 
 //Imagens
 import logoimg from "./img/logo.png";
@@ -23,20 +25,27 @@ import javascriptimg from "./img/javascript.png";
 import jsximg from "./img/jsx.png";
 import phpimg from "./img/php.png";
 import pythonimg from "./img/python.png";
+import GoogleFonts from "./img/googlefonts.png";
+import Icons8 from "./img/icons8.png";
+import RealFavicon from "./img/realfavicon.png";
+import Netlify from "./img/netlify.png";
+import AdobeColor from "./img/adobecolor.png";
+import clippath from "./img/clippath.png";
 
-// VARIÁVEIS GLOBAIS
-// const navegation = () => {
-//   [navegacao, setNavegacao] = useState(false);
-// };
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")); // AQUI É ONDE O REACT DOM É RENDERIZADO
 root.render(
+  // CONTROLE DE ROTAS - AQUI É ONDE AS ROTAS PRINCIPAIS SÃO CONTROLADAS
   <BrowserRouter>
     <Navegacao />
     <Routes>
       {/* Rotas da barra de navegação */}
       <Route path="/" exact element={<ConteudoInicial />} />
       <Route path="/documentacao" exact element={<Documentacao />} />
+      <Route path="/ferramentas" exact element={<Ferramentas />} />
+      <Route path="/certificados" exact element={<Documentacao />} />
+      <Route path="/portfolio" exact element={<Documentacao />} />
+      <Route path="/roadmap" exact element={<Documentacao />} />
+      <Route path="/contato" exact element={<Documentacao />} />
       {/* Subrotas da documentação */}
       <Route path="/documentacao/jsx" exact element={<Doc />} />
       <Route path="/documentacao/css" exact element={<Doc />} />
@@ -44,19 +53,13 @@ root.render(
       <Route path="/documentacao/react" exact element={<DocReact />} />
       <Route path="/documentacao/php" exact element={<Doc />} />
       <Route path="/documentacao/python" exact element={<Doc />} />
-
-      <Route path="/ferramentas" exact element={<Ferramentas />} />
-
-      <Route path="/certificados" exact element={<Documentacao />} />
-      <Route path="/portfolio" exact element={<Documentacao />} />
-      <Route path="/roadmap" exact element={<Documentacao />} />
-      <Route path="/contato" exact element={<Documentacao />} />
     </Routes>
   </BrowserRouter>
 );
 
-// VOU CRIAR TUDO AQUI E DEPOIS SEPARAR COMO COMPONENTES
+// PRETENDO SEPARAR ISSO EM OUTROS ARQUIVOS, MAS POR AGORA PARA MELHOR APRENDIZADO ESTÁ AQUI, ESTA EM ORDEM:
 function Navegacao() {
+  // COMPONENTE RESPONSÁVEL PELA NAVEGAÇÃO PRINCIPAL
   return (
     <React.Fragment>
       <nav className="NavegacaoPrincipal">
@@ -90,6 +93,7 @@ function Navegacao() {
 }
 
 function ConteudoInicial() {
+  // COMPONENTE RESPONSÁVEL PELA PRIMEIRA PÁGINA DO SITE
   return (
     <div className="conteudoInicial">
       <h1>Como era mesmo aquela sintaxe?</h1>
@@ -111,6 +115,7 @@ function ConteudoInicial() {
 }
 
 function Documentacao() {
+  // COMPONENTE RESPONSÁVEL PELA ABA DOCUMENTAÇÃO
   return (
     <section className="Documentacao">
       <h1>Escolha qual tecnologia você quer acessar</h1>
@@ -156,185 +161,8 @@ function Documentacao() {
   );
 }
 
-function Doc(props) {
-  return (
-    <section className="Doc">
-      <div className="DocFlexbox">
-        <img className="Doclogo" src={props.img} alt="react" />
-        <h1 className="DocTitulo">{props.titulo}</h1>
-      </div>
-      <p className="DocIntroducao">{props.introducao}</p>
-    </section>
-  );
-}
-
-function Secao(props) {
-  const containerRef = useRef();
-
-  useLayoutEffect(() => {
-    const container = containerRef.current;
-    const li = container.querySelectorAll("li");
-    console.log(li.length);
-
-    for (let i = 0; i < li.length; i++) {
-      console.log(li[i].innerText);
-      if (li[i].innerText === "") {
-        li[i].style.display = "none";
-      }
-    }
-  });
-
-  return (
-    <section className="Secao">
-      <h2 className="TituloDaSecao">{props.titulo}</h2>
-      <ul ref={containerRef} className="Uldoc">
-        <li>
-          {props.li1}
-          {props.codigo1}
-          {props.li1b}
-          {props.codigo1b}
-        </li>
-        <li>
-          {props.li2}
-          {props.codigo2}
-          {props.li2b}
-          {props.codigo2b}
-        </li>
-        <li>
-          {props.li3}
-          {props.codigo3}
-        </li>
-        <li>
-          {props.li4}
-          {props.codigo4}
-        </li>
-        <li>
-          {props.li5}
-          {props.codigo5}
-        </li>
-        <li>
-          {props.li6}
-          {props.codigo6}
-        </li>
-        <li>
-          {props.li7}
-          {props.codigo7}
-        </li>
-        <li>
-          {props.li8}
-          {props.codigo8}
-        </li>
-        <li>
-          {props.li9}
-          {props.codigo9}
-        </li>
-        <li>
-          {props.li10}
-          {props.codigo10}
-        </li>
-      </ul>
-    </section>
-  );
-}
-
-function NavegacaoDeIndice(props) {
-  const [rota, setRota] = useState(props.default);
-  return (
-    <>
-      <nav className="NavegacaoDeIndice">
-        <button
-          onClick={() => {
-            setRota(props.rota1);
-            console.log(rota);
-          }}
-        >
-          {props.nome1}
-        </button>
-        <button
-          onClick={() => {
-            setRota(props.rota2);
-            console.log(rota);
-          }}
-        >
-          {props.nome2}
-        </button>
-        <button
-          onClick={() => {
-            setRota(props.rota3);
-            console.log(rota);
-          }}
-        >
-          {props.nome3}
-        </button>
-        <button
-          onClick={() => {
-            setRota(props.rota4);
-            console.log(rota);
-          }}
-        >
-          {props.nome4}
-        </button>
-        <button
-          onClick={() => {
-            setRota(props.rota5);
-            console.log(rota);
-          }}
-        >
-          {props.nome5}
-        </button>
-        <button
-          onClick={() => {
-            setRota(props.rota6);
-            console.log(rota);
-          }}
-        >
-          {props.nome6}
-        </button>
-        <button
-          onClick={() => {
-            setRota(props.rota7);
-            console.log(rota);
-          }}
-        >
-          {props.nome7}
-        </button>
-        <button
-          onClick={() => {
-            setRota(props.rota8);
-            console.log(rota);
-          }}
-        >
-          {props.nome8}
-        </button>
-      </nav>
-
-      {/* ROTAS DA ABA FERRAMENTAS */}
-      {rota === "/ferramentas" && <Introducao />}
-      {rota === "/ferramentas/uso-frequente" && <UsoFrequente />}
-
-      {/* ROTAS DA ABA DOCUMENTACAO > REACT */}
-      {rota === "react" && <ReactIntroducao />}
-      {rota === "/documentacao/react" && <ReactIntroducao />}
-      {rota === "/documentacao/react/estrutura" && <ReactEstrutura />}
-      {rota === "/documentacao/react/regras" && <ReactRegras />}
-      {rota === "/documentacao/react/iniciando" && <ReactIniciando />}
-      {rota === "/documentacao/react/componentes" && <ReactComponentes />}
-      {rota === "/documentacao/react/props" && <ReactProps />}
-      {rota === "/documentacao/react/css" && <ReactCss />}
-      {rota === "/documentacao/react/routes" && <ReactRoutes />}
-    </>
-  );
-}
-
-function BlocoDeCodigo(props) {
-  return (
-    <pre className="BlocoDeCodigo">
-      <code>{props.codigo}</code>
-    </pre>
-  );
-}
-
 function DocReact() {
+  // COMPONENTE RESPONSÁVEL PELA ABA DOCUMENTAÇÃO > REACT
   return (
     <NavegacaoDeIndice
       default="react"
@@ -358,54 +186,7 @@ function DocReact() {
   );
 }
 
-function Ferramentas() {
-  return (
-    <>
-      <NavegacaoDeIndice
-        nome1="introdução"
-        rota1="/ferramentas"
-        nome2="uso frequente"
-        rota2="/ferramentas/uso-frequente"
-        nome3="css"
-        rota3="/ferramentas/css"
-        nome4="javascript"
-        rota4="/ferramentas/javascript"
-        nome5="cores"
-        rota5="/ferramentas/cores"
-        nome6="imagens"
-        rota6="/ferramentas/imagens"
-        nome7="ícones"
-        rota7="/ferramentas/icones"
-        nome8="Testes e SEO"
-        rota8="/ferramentas/testes-e-seo"
-      />
-    </>
-  );
-}
-
-function Introducao() {
-  return (
-    <section className="Introducao">
-      <h1>Introdução</h1>
-      <p>
-        Nesta seção você encontrará uma lista de ferramentas que podem ser úteis
-        para o desenvolvimento de sites e aplicativos web.
-        <button onClick={() => {}}>Me clica</button>
-      </p>
-    </section>
-  );
-}
-
-function UsoFrequente() {
-  return (
-    <section className="UsoFrequente">
-      <h1>Uso frequente</h1>
-      <p>USO FREQUENTE</p>
-    </section>
-  );
-}
-
-// COMPONENTES DA ABA DOCUMENTACAO > REACT
+// COMPONENTES DE CONTEÚDO DA ABA DOCUMENTACAO > REACT
 
 function ReactIntroducao() {
   return (
@@ -588,5 +369,296 @@ function ReactRoutes() {
         <BlocoDeCodigo codigo={`<button><Link to="/">Home</Link></button>`} />
       }
     />
+  );
+}
+
+function Ferramentas() {
+  // COMPONENTE RESPONSÁVEL PELA ABA FERRAMENTAS
+
+  return (
+    <NavegacaoDeIndice
+      default="introdução"
+      nome1="introdução"
+      rota1="/ferramentas"
+      nome2="uso frequente"
+      rota2="/ferramentas/uso-frequente"
+      nome3="css"
+      rota3="/ferramentas/css"
+      nome4="javascript"
+      rota4="/ferramentas/javascript"
+      nome5="cores"
+      rota5="/ferramentas/cores"
+      nome6="imagens"
+      rota6="/ferramentas/imagens"
+      nome7="ícones"
+      rota7="/ferramentas/icones"
+      nome8="Testes e SEO"
+      rota8="/ferramentas/testes-e-seo"
+    />
+  );
+}
+
+function Introducao() {
+  // COMPONENTE RESPONSÁVEL PELA ABA FERRAMENTAS>INTRODUÇÃO
+  return (
+    <section className="IntroducaoFerramentas">
+      <p>
+        Bem vindo a minha lista pessoal de ferramentas para desenvolvimento web.
+        Aqui você vai encontrar uma lista de ferramentas que eu uso no meu dia a
+        dia, e que eu recomendo para quem desenvolve sites e aplicativos. A
+        lista como todo o site continuará em constante mudança, para navegar por
+        ela é só usar o menu acima.
+      </p>
+    </section>
+  );
+}
+
+function UsoFrequente() {
+  // COMPONENTE RESPONSÁVEL PELA ABA FERRAMENTAS>USO FREQUENTE
+
+  return (
+    <div className="ferramentasFlex">
+      <BloquinhoImgTexto
+        img={GoogleFonts}
+        alt="google fonts logo"
+        titulo="Google Fonts"
+        texto="A melhor fonte de fontes"
+        a="https://fonts.google.com/"
+      />
+      <BloquinhoImgTexto
+        img={Icons8}
+        alt="Icons8 logo"
+        titulo="Icons8"
+        texto="Meu acervo de ícones preferido"
+        a="https://icons8.com/"
+      />
+      <BloquinhoImgTexto
+        img={RealFavicon}
+        alt="RealFavicon logo"
+        titulo="Real favicon"
+        texto="Gerador de favicons"
+        a="https://realfavicongenerator.net/"
+      />
+      <BloquinhoImgTexto
+        img={Netlify}
+        alt="Netilify logo"
+        titulo="Netlify"
+        texto="Hospedagem de sites estáticos"
+        a="https://www.netlify.com/"
+      />
+      <BloquinhoImgTexto
+        img={AdobeColor}
+        alt="Adobe Color logo"
+        titulo="Adobe color"
+        texto="Extração de cores de imagens, paletas, etc"
+        a="https://color.adobe.com/pt/create/color-wheel"
+      />
+    </div>
+  );
+}
+
+function Css() {
+  return (
+    <div className="ferramentasFlex">
+      <BloquinhoImgTexto
+        img={clippath}
+        alt="ClipPath logo"
+        titulo="CP Maker"
+        texto="Gerador de clip-path"
+        a="https://bennettfeely.com/clippy/"
+      />
+    </div>
+  );
+}
+
+// Componentes pequenos:
+
+function Doc(props) {
+  // COMPONENTE RESPONSÁVEL PELA INTRODUÇÃO DE PÁGINAS DA DOC, COMO JSX, CSS, JAVASCRIPT, PHP E PYTHON (RECEBE TEXTOS DE TEXTOS.JS)
+
+  return (
+    <section className="Doc">
+      <div className="DocFlexbox">
+        <img className="Doclogo" src={props.img} alt="react" />
+        <h1 className="DocTitulo">{props.titulo}</h1>
+      </div>
+      <p className="DocIntroducao">{props.introducao}</p>
+    </section>
+  );
+}
+
+function Secao(props) {
+  // COMPONENTE RESPONSÁVEL PELAS SEÇÕES DE DOCUMENTAÇÃO
+
+  const containerRef = useRef();
+
+  useLayoutEffect(() => {
+    // manipulação do DOM para esconder os itens vazios
+    const container = containerRef.current;
+    const li = container.querySelectorAll("li");
+    console.log(li.length);
+
+    for (let i = 0; i < li.length; i++) {
+      console.log(li[i].innerText);
+      if (li[i].innerText === "") {
+        li[i].style.display = "none";
+      }
+    }
+  });
+
+  return (
+    <section className="Secao">
+      <h2 className="TituloDaSecao">{props.titulo}</h2>
+      <ul ref={containerRef} className="Uldoc">
+        <li>
+          {props.li1}
+          {props.codigo1}
+          {props.li1b}
+          {props.codigo1b}
+        </li>
+        <li>
+          {props.li2}
+          {props.codigo2}
+          {props.li2b}
+          {props.codigo2b}
+        </li>
+        <li>
+          {props.li3}
+          {props.codigo3}
+        </li>
+        <li>
+          {props.li4}
+          {props.codigo4}
+        </li>
+        <li>
+          {props.li5}
+          {props.codigo5}
+        </li>
+        <li>
+          {props.li6}
+          {props.codigo6}
+        </li>
+        <li>
+          {props.li7}
+          {props.codigo7}
+        </li>
+        <li>
+          {props.li8}
+          {props.codigo8}
+        </li>
+        <li>
+          {props.li9}
+          {props.codigo9}
+        </li>
+        <li>
+          {props.li10}
+          {props.codigo10}
+        </li>
+      </ul>
+    </section>
+  );
+}
+
+function NavegacaoDeIndice(props) {
+  // COMPONENTE RESPONSÁVEL PELA SUBNAVEGAÇÃO DE ÍNDICES DE TODAS AS PÁGINAS
+  const [rota, setRota] = useState(props.default);
+  return (
+    <>
+      <nav className="NavegacaoDeIndice">
+        <button
+          onClick={() => {
+            setRota(props.rota1);
+          }}
+        >
+          {props.nome1}
+        </button>
+        <button
+          onClick={() => {
+            setRota(props.rota2);
+          }}
+        >
+          {props.nome2}
+        </button>
+        <button
+          onClick={() => {
+            setRota(props.rota3);
+          }}
+        >
+          {props.nome3}
+        </button>
+        <button
+          onClick={() => {
+            setRota(props.rota4);
+          }}
+        >
+          {props.nome4}
+        </button>
+        <button
+          onClick={() => {
+            setRota(props.rota5);
+          }}
+        >
+          {props.nome5}
+        </button>
+        <button
+          onClick={() => {
+            setRota(props.rota6);
+          }}
+        >
+          {props.nome6}
+        </button>
+        <button
+          onClick={() => {
+            setRota(props.rota7);
+          }}
+        >
+          {props.nome7}
+        </button>
+        <button
+          onClick={() => {
+            setRota(props.rota8);
+          }}
+        >
+          {props.nome8}
+        </button>
+      </nav>
+
+      {/* ROTAS DA ABA FERRAMENTAS */}
+      {rota === "introdução" && <Introducao />}
+      {rota === "/ferramentas" && <Introducao />}
+      {rota === "/ferramentas/uso-frequente" && <UsoFrequente />}
+      {rota === "/ferramentas/css" && <Css />}
+
+      {/* ROTAS DA ABA DOCUMENTACAO > REACT */}
+      {rota === "react" && <ReactIntroducao />}
+      {rota === "/documentacao/react" && <ReactIntroducao />}
+      {rota === "/documentacao/react/estrutura" && <ReactEstrutura />}
+      {rota === "/documentacao/react/regras" && <ReactRegras />}
+      {rota === "/documentacao/react/iniciando" && <ReactIniciando />}
+      {rota === "/documentacao/react/componentes" && <ReactComponentes />}
+      {rota === "/documentacao/react/props" && <ReactProps />}
+      {rota === "/documentacao/react/css" && <ReactCss />}
+      {rota === "/documentacao/react/routes" && <ReactRoutes />}
+    </>
+  );
+}
+
+function BlocoDeCodigo(props) {
+  // COMPONENTE RESPONSÁVEL PELOS BLOCOS DE CÓDIGO
+  return (
+    <pre className="BlocoDeCodigo">
+      <code>{props.codigo}</code>
+    </pre>
+  );
+}
+
+function BloquinhoImgTexto(props) {
+  // COMPONENTE RESPONSÁVEL PELOS BLOQUINHOS DE IMAGEM E TEXTO
+  return (
+    <a href={props.a} target="_blank" className="BloquinhoImgTexto">
+      <img src={props.img} alt={props.alt} />
+      <h3>{props.titulo}</h3>
+      <p>{props.texto}</p>
+    </a>
   );
 }
