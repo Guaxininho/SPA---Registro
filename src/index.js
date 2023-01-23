@@ -41,389 +41,11 @@ root.render(
       <Route path="/documentacao/jsx" exact element={<Doc />} />
       <Route path="/documentacao/css" exact element={<Doc />} />
       <Route path="/documentacao/javascript" exact element={<Doc />} />
-      <Route
-        path="/documentacao/react"
-        exact
-        element={
-          <>
-            <NavegacaoDeIndice
-              nome1="introdução"
-              rota1="/documentacao/react"
-              nome2="estrutura"
-              rota2="/documentacao/react/estrutura"
-              nome3="regras"
-              rota3="/documentacao/react/regras"
-              nome4="iniciando"
-              rota4="/documentacao/react/iniciando"
-              nome5="componentes"
-              rota5="/documentacao/react/componentes"
-              nome6="props"
-              rota6="/documentacao/react/props"
-              nome7="css"
-              rota7="/documentacao/react/css"
-              nome8="routes"
-              rota8="/documentacao/react/routes"
-            />
-            <Doc
-              img={reactimg}
-              titulo={textos.React.titulo}
-              introducao={textos.React.introducao}
-            />
-          </>
-        }
-      />
+      <Route path="/documentacao/react" exact element={<DocReact />} />
       <Route path="/documentacao/php" exact element={<Doc />} />
       <Route path="/documentacao/python" exact element={<Doc />} />
 
-      {/* DOCUMENTAÇÃO > REACT */}
-      <Route
-        path="/documentacao/react/estrutura"
-        exact
-        element={
-          <React.Fragment>
-            <NavegacaoDeIndice
-              nome1="introdução"
-              rota1="/documentacao/react"
-              nome2="estrutura"
-              rota2="/documentacao/react/estrutura"
-              nome3="regras"
-              rota3="/documentacao/react/regras"
-              nome4="iniciando"
-              rota4="/documentacao/react/iniciando"
-              nome5="componentes"
-              rota5="/documentacao/react/componentes"
-              nome6="props"
-              rota6="/documentacao/react/props"
-              nome7="css"
-              rota7="/documentacao/react/css"
-              nome8="routes"
-              rota8="/documentacao/react/routes"
-            />
-            <Secao
-              titulo="estrutura"
-              li1="node_modules: é onde ficam as dependências do projeto"
-              li2="public: é onde o index.html fica"
-              li3="src: é onde fica o código do projeto"
-            />
-          </React.Fragment>
-        }
-      />
-
-      <Route
-        path="/documentacao/react/regras"
-        exact
-        element={
-          <React.Fragment>
-            <NavegacaoDeIndice
-              nome1="introdução"
-              rota1="/documentacao/react"
-              nome2="estrutura"
-              rota2="/documentacao/react/estrutura"
-              nome3="regras"
-              rota3="/documentacao/react/regras"
-              nome4="iniciando"
-              rota4="/documentacao/react/iniciando"
-              nome5="componentes"
-              rota5="/documentacao/react/componentes"
-              nome6="props"
-              rota6="/documentacao/react/props"
-              nome7="css"
-              rota7="/documentacao/react/css"
-              nome8="routes"
-              rota8="/documentacao/react/routes"
-            />
-            <Secao
-              titulo="regras"
-              li1="para o react entender que é um componente, a função deve ter nome maiúsculo e retornar um JSX"
-              li2="no react é obrigatório fechar a tag"
-              codigo2={
-                <BlocoDeCodigo codigo="&lt;h1&gt;Hello World!&lt;/h1&gt;" />
-              }
-              l2b="mas normalmente vemos a tag de fechamento omitida"
-              codigo2b={<BlocoDeCodigo codigo="&lt;h1/&gt;" />}
-              li3="isso incui tudo que no html não era fechado, como as tags img,
-              input, br e etc. No React, TUDO, literalmente tudo tem que ser
-              fechado."
-              li4="JSX sempre deve retornar apenas um elemento, então se for mais de um elemento deve estar encapsulado em apenas um. Se não quiser que este elemento apareça no html, pode usar um react fragment"
-              li5="Para usar javascript dentro do JSX, usa-se chaves"
-              codigo5={<BlocoDeCodigo codigo="&lt;h1&gt;{1 + 1}&lt;/h1&gt;" />}
-              li6="Para usar eventos no JSX, usa-se o camelCase"
-              codigo6={
-                <BlocoDeCodigo codigo="&lt;button onClick={funcao}&gt;Clique&lt;/button&gt;" />
-              }
-              li7="Para usar atributos (classes para CSS) no JSX, usa-se o camelCase e nome não é class, mas className"
-              codigo7={
-                <BlocoDeCodigo codigo="&lt;button className='botao'&gt;Clique&lt;/button&gt;" />
-              }
-            />
-          </React.Fragment>
-        }
-      />
-
-      <Route
-        path="/documentacao/react/iniciando"
-        exact
-        element={
-          <React.Fragment>
-            <NavegacaoDeIndice
-              nome1="introdução"
-              rota1="/documentacao/react"
-              nome2="estrutura"
-              rota2="/documentacao/react/estrutura"
-              nome3="regras"
-              rota3="/documentacao/react/regras"
-              nome4="iniciando"
-              rota4="/documentacao/react/iniciando"
-              nome5="componentes"
-              rota5="/documentacao/react/componentes"
-              nome6="props"
-              rota6="/documentacao/react/props"
-              nome7="css"
-              rota7="/documentacao/react/css"
-              nome8="routes"
-              rota8="/documentacao/react/routes"
-            />
-            <Secao
-              titulo="iniciando"
-              li1="escolha o diretório pelo terminal e use o comando"
-              codigo1={
-                <BlocoDeCodigo codigo="npx create-react-app nomedoprojeto" />
-              }
-              li2="mude para a pasta do projeto após a criação e use o comando"
-              codigo2={<BlocoDeCodigo codigo="code ." />}
-              li2b="para abrir o projeto no VSCode, em seguida use este comando para iniciar o server"
-              codigo2b={<BlocoDeCodigo codigo="npm start" />}
-              li3="exclua de dentro da pasta src: app.css, app.js, app.test.js, index.css, logo.svg, reportWebVitals.js e setupTests.js, deixando apenas o index.js"
-              li4="no index.js, apague o import do 'index.css', o import App from './App' e o import reportWebVitals from './reportWebVitals', exclua também o componente <App /> e o reportWebVitals(), a partir daqui é possível criar o projeto do zero, criando seu componente dentro de <React.StrictMode>"
-            />
-          </React.Fragment>
-        }
-      />
-
-      <Route
-        path="/documentacao/react/componentes"
-        exact
-        element={
-          <React.Fragment>
-            <NavegacaoDeIndice
-              nome1="introdução"
-              rota1="/documentacao/react"
-              nome2="estrutura"
-              rota2="/documentacao/react/estrutura"
-              nome3="regras"
-              rota3="/documentacao/react/regras"
-              nome4="iniciando"
-              rota4="/documentacao/react/iniciando"
-              nome5="componentes"
-              rota5="/documentacao/react/componentes"
-              nome6="props"
-              rota6="/documentacao/react/props"
-              nome7="css"
-              rota7="/documentacao/react/css"
-              nome8="routes"
-              rota8="/documentacao/react/routes"
-            />
-            <Secao
-              titulo="componentes"
-              li1="É possível definir variáveis fora e dentro do componente, mas se for definida dentro, só pode ser usada ali, e se for definida fora, pode ser usada em qualquer lugar do componente. Variáveis definidas fora do componente são globais, e variáveis definidas dentro do componente são locais."
-              codigo1={
-                <BlocoDeCodigo
-                  codigo={`const nomeUm = 'João'; // variável global
-
-                function App(){
-                  const nome = 'Maria'; // variável local do componente
-                  return(
-                    <div>
-                    <h1>Hello {nome}</h1> // vai sair HELLO MARIA
-                    <h1>Hello {nomeUm}</h1> // vai sair HELLO JOAO
-                    </div>
-                )}`}
-                />
-              }
-              li1b="Sempre é preciso retornar um valor, não é possível retornar uma definição de variável por exemplo. Se for preciso retornar uma variável, é preciso retornar o valor dela."
-            />
-          </React.Fragment>
-        }
-      />
-      <Route
-        path="/documentacao/react/props"
-        exact
-        element={
-          <React.Fragment>
-            <NavegacaoDeIndice
-              nome1="introdução"
-              rota1="/documentacao/react"
-              nome2="estrutura"
-              rota2="/documentacao/react/estrutura"
-              nome3="regras"
-              rota3="/documentacao/react/regras"
-              nome4="iniciando"
-              rota4="/documentacao/react/iniciando"
-              nome5="componentes"
-              rota5="/documentacao/react/componentes"
-              nome6="props"
-              rota6="/documentacao/react/props"
-              nome7="css"
-              rota7="/documentacao/react/css"
-              nome8="routes"
-              rota8="/documentacao/react/routes"
-            />
-            <Secao
-              titulo="props"
-              li1="props é passado como parâmetro da função do componente, e é um objeto. Portanto, quando você usa a contação de . você está criando uma chave que receberá um valor:"
-              codigo1={
-                <BlocoDeCodigo
-                  codigo={`<App nome="Maria" /> // aqui é passado o valor da propriedade nome
-                  
-                function App(props){
-                return(
-                  <div>
-                  <h1>Hello {props.nome}</h1> // vai sair Hello Maria
-                  </div>
-              )}`}
-                />
-              }
-              li2="Além da props, existe a props.children. A propChildren é tudo que renderiza entre a abertura e fechamento do componente, não são as propriedades, mas o que realmente vem dentro do componente. Exemplo:"
-              codigo2={<BlocoDeCodigo codigo={`<App>Samuel</App>`} />}
-              li2b="Aqui Samuel é uma props.children. A propriedade children é um objeto, e pode ser acessada com props.children. No componente ficaria assim:"
-              codigo2b={
-                <BlocoDeCodigo
-                  codigo={`function App(props){
-                return(
-                  <div>
-                  <h1>Hello {props.children}</h1> // vai sair Hello Samuel
-                  </div>
-              )}`}
-                />
-              }
-            />
-          </React.Fragment>
-        }
-      />
-
-      <Route
-        path="/documentacao/react/css"
-        exact
-        element={
-          <React.Fragment>
-            <NavegacaoDeIndice
-              nome1="introdução"
-              rota1="/documentacao/react"
-              nome2="estrutura"
-              rota2="/documentacao/react/estrutura"
-              nome3="regras"
-              rota3="/documentacao/react/regras"
-              nome4="iniciando"
-              rota4="/documentacao/react/iniciando"
-              nome5="componentes"
-              rota5="/documentacao/react/componentes"
-              nome6="props"
-              rota6="/documentacao/react/props"
-              nome7="css"
-              rota7="/documentacao/react/css"
-              nome8="routes"
-              rota8="/documentacao/react/routes"
-            />
-            <Secao
-              titulo="css"
-              li1="Para entrar no javascript precisamos usar {} no JSX, então, quando se trata de passar propriedades em javascript para um css inline, visto que é um objeto do javascript também precisamos das chaves do objeto {}, então fica {{}}, como no exemplo a seguir:"
-              codigo1={<BlocoDeCodigo codigo={`style={{color: 'red'}};`} />}
-              li1b="Já o background-color não funciona com este nome, pois é uma propriedade do css, e não do js. Então, para usar o background-color inline, precisamos usar o camelCase, backgroundColor como chave, e a cor como valor já que é um objeto. Exemplo:"
-              codigo1b={
-                <BlocoDeCodigo codigo={`style={{backgroundColor = 'red'}};`} />
-              }
-              li2="É importante ressaltar também que inline é mais forte que o css externo, então, se tivermos um background-color no css externo, e um backgroundColor no inline css, o inline vai prevalecer. Usando livrarias externas é normal vir inline no código, então é importante reforçar isso."
-            />
-          </React.Fragment>
-        }
-      />
-
-      <Route
-        path="/documentacao/react/routes"
-        exact
-        element={
-          <React.Fragment>
-            <NavegacaoDeIndice
-              nome1="introdução"
-              rota1="/documentacao/react"
-              nome2="estrutura"
-              rota2="/documentacao/react/estrutura"
-              nome3="regras"
-              rota3="/documentacao/react/regras"
-              nome4="iniciando"
-              rota4="/documentacao/react/iniciando"
-              nome5="componentes"
-              rota5="/documentacao/react/componentes"
-              nome6="props"
-              rota6="/documentacao/react/props"
-              nome7="css"
-              rota7="/documentacao/react/css"
-              nome8="routes"
-              rota8="/documentacao/react/routes"
-            />
-            <Secao
-              titulo="routes"
-              li1="Para controlar rotas de maneira simples no react usamos conferências de statements e useState. Se a variável é true, renderiza o componente, se não, não renderiza. Exemplo:"
-              codigo1={
-                <BlocoDeCodigo
-                  codigo={`const[Inicial, setInicial] = useState(true);
-              {Inicial ? <ConteudoInicial /> : null}`}
-                />
-              }
-              li1b="se inicial for true renderiza o componente <ConteudoInicial/> se não, não renderiza nada. E podemos setar o valor da variável com um botão, por exemplo:"
-              codigo1b={
-                <BlocoDeCodigo
-                  codigo={`<button Onclick={()=>{setInicial(!Inicial)}}>Mostrar/Ocultar</button>`}
-                />
-              }
-              li2="Porém, no longo prazo isso pode ficar muito verboso, então, para facilitar, usamos a biblioteca react-router-dom. Ela é uma biblioteca que facilita a criação de rotas no react. Para instalar, basta rodar o comando:"
-              codigo2={
-                <BlocoDeCodigo codigo={`npm install react-router-dom`} />
-              }
-              li2b="Para usar, basta importar o BrowserRouter, Routes e Route do react-router-dom:"
-              codigo2b={
-                <BlocoDeCodigo
-                  codigo={`import { BrowserRouter, Routes, Route } from 'react-router-dom';`}
-                />
-              }
-              li3="O BrowserRouter é o componente que envolve toda a aplicação,
-              e o Routes é o componente que envolve todas as rotas. E por último o Route é o componente que renderiza o componente que queremos. No Route é onde escolhemos o caminho com a propriedade path e qual componente será renderizado naquele caminho, com a propriedade element. Exemplo:"
-              codigo3={
-                <BlocoDeCodigo
-                  codigo={`<BrowserRouter>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/sobre" element={<Sobre />} />
-                </Routes>
-              </BrowserRouter>`}
-                />
-              }
-              li4="O Route também pode receber uma propriedade chamada exact, que faz com que a rota só seja renderizada se o caminho for exatamente igual ao path. Exemplo:"
-              codigo4={
-                <BlocoDeCodigo
-                  codigo={`<Route path="/" exact element={<Home />} />`}
-                />
-              }
-              li5="Para ir para essas rotas, basta usar o componente Link do react-router-dom. Exemplo:"
-              codigo5={
-                <BlocoDeCodigo
-                  codigo={`<button><Link to="/">Home</Link></button>`}
-                />
-              }
-            />
-          </React.Fragment>
-        }
-      />
-
-      {/* FIM DA DOCUMENTAÇÃO > REACT */}
-
       <Route path="/ferramentas" exact element={<Ferramentas />} />
-      {/* Ferranentas */}
-      <Route
-        path="/ferramentas/uso-frequente"
-        exact
-        element={<Ferramentas />}
-      />
 
       <Route path="/certificados" exact element={<Documentacao />} />
       <Route path="/portfolio" exact element={<Documentacao />} />
@@ -616,7 +238,7 @@ function Secao(props) {
 }
 
 function NavegacaoDeIndice(props) {
-  const [rota, setRota] = useState("");
+  const [rota, setRota] = useState(props.default);
   return (
     <>
       <nav className="NavegacaoDeIndice">
@@ -626,7 +248,7 @@ function NavegacaoDeIndice(props) {
             console.log(rota);
           }}
         >
-          <Link to={props.rota1}>{props.nome1}</Link>
+          {props.nome1}
         </button>
         <button
           onClick={() => {
@@ -634,29 +256,72 @@ function NavegacaoDeIndice(props) {
             console.log(rota);
           }}
         >
-          <Link to={props.rota2}>{props.nome2}</Link>
+          {props.nome2}
         </button>
-        <button>
-          <Link to={props.rota3}>{props.nome3}</Link>
+        <button
+          onClick={() => {
+            setRota(props.rota3);
+            console.log(rota);
+          }}
+        >
+          {props.nome3}
         </button>
-        <button>
-          <Link to={props.rota4}>{props.nome4}</Link>
+        <button
+          onClick={() => {
+            setRota(props.rota4);
+            console.log(rota);
+          }}
+        >
+          {props.nome4}
         </button>
-        <button>
-          <Link to={props.rota5}>{props.nome5}</Link>
+        <button
+          onClick={() => {
+            setRota(props.rota5);
+            console.log(rota);
+          }}
+        >
+          {props.nome5}
         </button>
-        <button>
-          <Link to={props.rota6}>{props.nome6}</Link>
+        <button
+          onClick={() => {
+            setRota(props.rota6);
+            console.log(rota);
+          }}
+        >
+          {props.nome6}
         </button>
-        <button>
-          <Link to={props.rota7}>{props.nome7}</Link>
+        <button
+          onClick={() => {
+            setRota(props.rota7);
+            console.log(rota);
+          }}
+        >
+          {props.nome7}
         </button>
-        <button>
-          <Link to={props.rota8}>{props.nome8}</Link>
+        <button
+          onClick={() => {
+            setRota(props.rota8);
+            console.log(rota);
+          }}
+        >
+          {props.nome8}
         </button>
       </nav>
+
+      {/* ROTAS DA ABA FERRAMENTAS */}
       {rota === "/ferramentas" && <Introducao />}
       {rota === "/ferramentas/uso-frequente" && <UsoFrequente />}
+
+      {/* ROTAS DA ABA DOCUMENTACAO > REACT */}
+      {rota === "react" && <ReactIntroducao />}
+      {rota === "/documentacao/react" && <ReactIntroducao />}
+      {rota === "/documentacao/react/estrutura" && <ReactEstrutura />}
+      {rota === "/documentacao/react/regras" && <ReactRegras />}
+      {rota === "/documentacao/react/iniciando" && <ReactIniciando />}
+      {rota === "/documentacao/react/componentes" && <ReactComponentes />}
+      {rota === "/documentacao/react/props" && <ReactProps />}
+      {rota === "/documentacao/react/css" && <ReactCss />}
+      {rota === "/documentacao/react/routes" && <ReactRoutes />}
     </>
   );
 }
@@ -666,6 +331,30 @@ function BlocoDeCodigo(props) {
     <pre className="BlocoDeCodigo">
       <code>{props.codigo}</code>
     </pre>
+  );
+}
+
+function DocReact() {
+  return (
+    <NavegacaoDeIndice
+      default="react"
+      nome1="introdução"
+      rota1="/documentacao/react"
+      nome2="estrutura"
+      rota2="/documentacao/react/estrutura"
+      nome3="regras"
+      rota3="/documentacao/react/regras"
+      nome4="iniciando"
+      rota4="/documentacao/react/iniciando"
+      nome5="componentes"
+      rota5="/documentacao/react/componentes"
+      nome6="props"
+      rota6="/documentacao/react/props"
+      nome7="css"
+      rota7="/documentacao/react/css"
+      nome8="routes"
+      rota8="/documentacao/react/routes"
+    />
   );
 }
 
@@ -694,12 +383,6 @@ function Ferramentas() {
   );
 }
 
-// function Categoriarenderizada(props) {
-//   return (
-
-//   );
-// }
-
 function Introducao() {
   return (
     <section className="Introducao">
@@ -719,5 +402,191 @@ function UsoFrequente() {
       <h1>Uso frequente</h1>
       <p>USO FREQUENTE</p>
     </section>
+  );
+}
+
+// COMPONENTES DA ABA DOCUMENTACAO > REACT
+
+function ReactIntroducao() {
+  return (
+    <Doc
+      img={reactimg}
+      titulo={textos.React.titulo}
+      introducao={textos.React.introducao}
+    />
+  );
+}
+
+function ReactEstrutura() {
+  return (
+    <Secao
+      titulo="estrutura"
+      li1="node_modules: é onde ficam as dependências do projeto"
+      li2="public: é onde o index.html fica"
+      li3="src: é onde fica o código do projeto"
+    />
+  );
+}
+
+function ReactRegras() {
+  return (
+    <Secao
+      titulo="regras"
+      li1="para o react entender que é um componente, a função deve ter nome maiúsculo e retornar um JSX"
+      li2="no react é obrigatório fechar a tag"
+      codigo2={<BlocoDeCodigo codigo="&lt;h1&gt;Hello World!&lt;/h1&gt;" />}
+      l2b="mas normalmente vemos a tag de fechamento omitida"
+      codigo2b={<BlocoDeCodigo codigo="&lt;h1/&gt;" />}
+      li3="isso incui tudo que no html não era fechado, como as tags img,
+              input, br e etc. No React, TUDO, literalmente tudo tem que ser
+              fechado."
+      li4="JSX sempre deve retornar apenas um elemento, então se for mais de um elemento deve estar encapsulado em apenas um. Se não quiser que este elemento apareça no html, pode usar um react fragment"
+      li5="Para usar javascript dentro do JSX, usa-se chaves"
+      codigo5={<BlocoDeCodigo codigo="&lt;h1&gt;{1 + 1}&lt;/h1&gt;" />}
+      li6="Para usar eventos no JSX, usa-se o camelCase"
+      codigo6={
+        <BlocoDeCodigo codigo="&lt;button onClick={funcao}&gt;Clique&lt;/button&gt;" />
+      }
+      li7="Para usar atributos (classes para CSS) no JSX, usa-se o camelCase e nome não é class, mas className"
+      codigo7={
+        <BlocoDeCodigo codigo="&lt;button className='botao'&gt;Clique&lt;/button&gt;" />
+      }
+    />
+  );
+}
+
+function ReactIniciando() {
+  return (
+    <Secao
+      titulo="iniciando"
+      li1="escolha o diretório pelo terminal e use o comando"
+      codigo1={<BlocoDeCodigo codigo="npx create-react-app nomedoprojeto" />}
+      li2="mude para a pasta do projeto após a criação e use o comando"
+      codigo2={<BlocoDeCodigo codigo="code ." />}
+      li2b="para abrir o projeto no VSCode, em seguida use este comando para iniciar o server"
+      codigo2b={<BlocoDeCodigo codigo="npm start" />}
+      li3="exclua de dentro da pasta src: app.css, app.js, app.test.js, index.css, logo.svg, reportWebVitals.js e setupTests.js, deixando apenas o index.js"
+      li4="no index.js, apague o import do 'index.css', o import App from './App' e o import reportWebVitals from './reportWebVitals', exclua também o componente <App /> e o reportWebVitals(), a partir daqui é possível criar o projeto do zero, criando seu componente dentro de <React.StrictMode>"
+    />
+  );
+}
+
+function ReactComponentes() {
+  return (
+    <Secao
+      titulo="componentes"
+      li1="É possível definir variáveis fora e dentro do componente, mas se for definida dentro, só pode ser usada ali, e se for definida fora, pode ser usada em qualquer lugar do componente. Variáveis definidas fora do componente são globais, e variáveis definidas dentro do componente são locais."
+      codigo1={
+        <BlocoDeCodigo
+          codigo={`const nomeUm = 'João'; // variável global
+
+                function App(){
+                  const nome = 'Maria'; // variável local do componente
+                  return(
+                    <div>
+                    <h1>Hello {nome}</h1> // vai sair HELLO MARIA
+                    <h1>Hello {nomeUm}</h1> // vai sair HELLO JOAO
+                    </div>
+                )}`}
+        />
+      }
+      li1b="Sempre é preciso retornar um valor, não é possível retornar uma definição de variável por exemplo. Se for preciso retornar uma variável, é preciso retornar o valor dela."
+    />
+  );
+}
+
+function ReactProps() {
+  return (
+    <Secao
+      titulo="props"
+      li1="props é passado como parâmetro da função do componente, e é um objeto. Portanto, quando você usa a contação de . você está criando uma chave que receberá um valor:"
+      codigo1={
+        <BlocoDeCodigo
+          codigo={`<App nome="Maria" /> // aqui é passado o valor da propriedade nome
+                  
+                function App(props){
+                return(
+                  <div>
+                  <h1>Hello {props.nome}</h1> // vai sair Hello Maria
+                  </div>
+              )}`}
+        />
+      }
+      li2="Além da props, existe a props.children. A propChildren é tudo que renderiza entre a abertura e fechamento do componente, não são as propriedades, mas o que realmente vem dentro do componente. Exemplo:"
+      codigo2={<BlocoDeCodigo codigo={`<App>Samuel</App>`} />}
+      li2b="Aqui Samuel é uma props.children. A propriedade children é um objeto, e pode ser acessada com props.children. No componente ficaria assim:"
+      codigo2b={
+        <BlocoDeCodigo
+          codigo={`function App(props){
+                return(
+                  <div>
+                  <h1>Hello {props.children}</h1> // vai sair Hello Samuel
+                  </div>
+              )}`}
+        />
+      }
+    />
+  );
+}
+
+function ReactCss() {
+  return (
+    <Secao
+      titulo="css"
+      li1="Para entrar no javascript precisamos usar {} no JSX, então, quando se trata de passar propriedades em javascript para um css inline, visto que é um objeto do javascript também precisamos das chaves do objeto {}, então fica {{}}, como no exemplo a seguir:"
+      codigo1={<BlocoDeCodigo codigo={`style={{color: 'red'}};`} />}
+      li1b="Já o background-color não funciona com este nome, pois é uma propriedade do css, e não do js. Então, para usar o background-color inline, precisamos usar o camelCase, backgroundColor como chave, e a cor como valor já que é um objeto. Exemplo:"
+      codigo1b={<BlocoDeCodigo codigo={`style={{backgroundColor = 'red'}};`} />}
+      li2="É importante ressaltar também que inline é mais forte que o css externo, então, se tivermos um background-color no css externo, e um backgroundColor no inline css, o inline vai prevalecer. Usando livrarias externas é normal vir inline no código, então é importante reforçar isso."
+    />
+  );
+}
+
+function ReactRoutes() {
+  return (
+    <Secao
+      titulo="routes"
+      li1="Para controlar rotas de maneira simples no react usamos conferências de statements e useState. Se a variável é true, renderiza o componente, se não, não renderiza. Exemplo:"
+      codigo1={
+        <BlocoDeCodigo
+          codigo={`const[Inicial, setInicial] = useState(true);
+              {Inicial ? <ConteudoInicial /> : null}`}
+        />
+      }
+      li1b="se inicial for true renderiza o componente <ConteudoInicial/> se não, não renderiza nada. E podemos setar o valor da variável com um botão, por exemplo:"
+      codigo1b={
+        <BlocoDeCodigo
+          codigo={`<button Onclick={()=>{setInicial(!Inicial)}}>Mostrar/Ocultar</button>`}
+        />
+      }
+      li2="Porém, no longo prazo isso pode ficar muito verboso, então, para facilitar, usamos a biblioteca react-router-dom. Ela é uma biblioteca que facilita a criação de rotas no react. Para instalar, basta rodar o comando:"
+      codigo2={<BlocoDeCodigo codigo={`npm install react-router-dom`} />}
+      li2b="Para usar, basta importar o BrowserRouter, Routes e Route do react-router-dom:"
+      codigo2b={
+        <BlocoDeCodigo
+          codigo={`import { BrowserRouter, Routes, Route } from 'react-router-dom';`}
+        />
+      }
+      li3="O BrowserRouter é o componente que envolve toda a aplicação,
+              e o Routes é o componente que envolve todas as rotas. E por último o Route é o componente que renderiza o componente que queremos. No Route é onde escolhemos o caminho com a propriedade path e qual componente será renderizado naquele caminho, com a propriedade element. Exemplo:"
+      codigo3={
+        <BlocoDeCodigo
+          codigo={`<BrowserRouter>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/sobre" element={<Sobre />} />
+                </Routes>
+              </BrowserRouter>`}
+        />
+      }
+      li4="O Route também pode receber uma propriedade chamada exact, que faz com que a rota só seja renderizada se o caminho for exatamente igual ao path. Exemplo:"
+      codigo4={
+        <BlocoDeCodigo codigo={`<Route path="/" exact element={<Home />} />`} />
+      }
+      li5="Para ir para essas rotas, basta usar o componente Link do react-router-dom. Exemplo:"
+      codigo5={
+        <BlocoDeCodigo codigo={`<button><Link to="/">Home</Link></button>`} />
+      }
+    />
   );
 }
