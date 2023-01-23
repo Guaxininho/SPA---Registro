@@ -31,6 +31,29 @@ import RealFavicon from "./img/realfavicon.png";
 import Netlify from "./img/netlify.png";
 import AdobeColor from "./img/adobecolor.png";
 import clippath from "./img/clippath.png";
+import event from "./img/event.png";
+import dommanipulation from "./img/dommanipulation.png";
+import keyboardIcon from "./img/keyboardIcon.png";
+import manualIcon from "./img/manualIcon.png";
+import OpenColor from "./img/opencolor.png";
+import colorhunt from "./img/colorhunt.png";
+import lolcolors from "./img/lolcolors.png";
+import uigradients from "./img/uigradients.png";
+import tintandshade from "./img/tintandshade.png";
+import image1 from "./img/image1.png";
+import image2 from "./img/image2.png";
+import image3 from "./img/image3.png";
+import image4 from "./img/image4.png";
+import icon1 from "./img/icon1.png";
+import icon2 from "./img/icon2.png";
+import icon3 from "./img/icon3.png";
+import squoosh from "./img/squoosh.png";
+import htmlvalidator from "./img/htmlvalidator.png";
+import cssvalidator from "./img/cssvalidator.png";
+import checklistfront from "./img/checklistfront.png";
+import woorank from "./img/woorank.png";
+import g4 from "./img/g4.png";
+import hover from "./img/hover.png";
 
 const root = ReactDOM.createRoot(document.getElementById("root")); // AQUI É ONDE O REACT DOM É RENDERIZADO
 root.render(
@@ -458,6 +481,7 @@ function UsoFrequente() {
 }
 
 function Css() {
+  // COMPONENTE RESPONSÁVEL PELA ABA FERRAMENTAS>CSS
   return (
     <div className="ferramentasFlex">
       <BloquinhoImgTexto
@@ -471,6 +495,205 @@ function Css() {
   );
 }
 
+function Javascript() {
+  // COMPONENTE RESPONSÁVEL PELA ABA FERRAMENTAS>JAVASCRIPT
+  return (
+    <div className="ferramentasFlex">
+      <BloquinhoImgTexto
+        img={event}
+        alt="event logo"
+        titulo="Lista de eventos"
+        texto="de acordo com o que procura"
+        a="https://developer.mozilla.org/en-US/docs/Web/Events"
+      />
+      <BloquinhoImgTexto
+        img={dommanipulation}
+        alt="dom manipulation logo"
+        titulo="Controle do DOM"
+        texto="todas as sintaxes de manipulação do DOM"
+        a="https://youmightnotneedjquery.com/"
+      />
+      <BloquinhoImgTexto
+        img={keyboardIcon}
+        alt="keyboard logo"
+        titulo="Teclas em JS"
+        texto="todas as teclas em código JS"
+        a="https://www.toptal.com/developers/keycode"
+      />
+      <BloquinhoImgTexto
+        img={manualIcon}
+        alt="manual logo"
+        titulo="Manual JS"
+        texto="boas práticas de JS em pt-br"
+        a="https://github.com/rwaldron/idiomatic.js/tree/master/translations/pt_BR"
+      />
+    </div>
+  );
+}
+
+function Cores() {
+  // COMPONENTE RESPONSÁVEL PELA ABA FERRAMENTAS>CORES
+  return (
+    <div className="ferramentasFlex">
+      <BloquinhoImgTexto
+        img={OpenColor}
+        alt="opencolor logo"
+        titulo="Open Color"
+        texto="boas tonalidades padrões"
+        a="https://yeun.github.io/open-color/"
+      />
+      <BloquinhoImgTexto
+        img={colorhunt}
+        alt="colorhunt logo"
+        titulo="Color hunt"
+        texto="Paletas prontas"
+        a="https://www.colorhunt.co/"
+      />
+      <BloquinhoImgTexto
+        img={lolcolors}
+        alt="lolcolors logo"
+        titulo="LOL Colors"
+        texto="meu site preferido em escolha de paletas"
+        a="https://www.webdesignrankings.com/resources/lolcolors/"
+      />
+      <BloquinhoImgTexto
+        img={uigradients}
+        alt="UI gradients logo"
+        titulo="UI Gradients"
+        texto="gradientes prontos"
+        a="https://uigradients.com/#SiriusTamed"
+      />
+      <BloquinhoImgTexto
+        img={tintandshade}
+        alt="Tint and Shade logo"
+        titulo="Tint and Shade"
+        texto="gerador de cores para sombras e efeitos"
+        a="https://maketintsandshades.com/"
+      />
+    </div>
+  );
+}
+
+function Imagens() {
+  // COMPONENTE RESPONSÁVEL PELA ABA FERRAMENTAS>IMAGENS
+  return (
+    <div className="ferramentasFlex">
+      <BloquinhoImgTexto
+        img={image1}
+        alt="unplash logo"
+        titulo="Unplash"
+        texto="1° Acervo de imagens gratuitas"
+        a="https://unsplash.com/pt-br"
+      />
+      <BloquinhoImgTexto
+        img={image2}
+        alt="Pexels logo"
+        titulo="Pexels"
+        texto="2° Acervo de imagens gratuitas"
+        a="https://www.pexels.com/pt-br/"
+      />
+      <BloquinhoImgTexto
+        img={image3}
+        alt="Pixabay logo"
+        titulo="Pixabay"
+        texto="3° Acervo de imagens gratuitas"
+        a="https://pixabay.com/pt/"
+      />
+      <BloquinhoImgTexto
+        img={image4}
+        alt="Freepik logo"
+        titulo="Freepik"
+        texto="4° Acervo de imagens gratuitas"
+        a="https://br.freepik.com/"
+      />
+    </div>
+  );
+}
+
+function Icones() {
+  // COMPONENTE RESPONSÁVEL PELA ABA FERRAMENTAS>ÍCONES
+  return (
+    <div className="ferramentasFlex">
+      <BloquinhoImgTexto
+        img={icon1}
+        alt="flaticon logo"
+        titulo="Flaticon"
+        texto="1° Acervo de ícones gratuitos"
+        a="https://www.flaticon.com/br/"
+      />
+      <BloquinhoImgTexto
+        img={icon2}
+        alt="iconfinder logo"
+        titulo="Iconfinder"
+        texto="2° Acervo de ícones gratuitos"
+        a="https://www.iconfinder.com/"
+      />
+      <BloquinhoImgTexto
+        img={icon3}
+        alt="iconscout logo"
+        titulo="Iconscout"
+        texto="3° Acervo de ícones gratuitos"
+        a="https://iconscout.com/"
+      />
+    </div>
+  );
+}
+
+function Testeseseo() {
+  return (
+    <div className="ferramentasFlex">
+      <BloquinhoImgTexto
+        img={squoosh}
+        alt="squoosh logo"
+        titulo="Squoosh"
+        texto="Compressor de imagens"
+        a="https://squoosh.app/"
+      />
+      <BloquinhoImgTexto
+        img={htmlvalidator}
+        alt="html validator logo"
+        titulo="HTML Validator"
+        texto="teste de validação do html"
+        a="https://validator.w3.org/"
+      />
+      <BloquinhoImgTexto
+        img={cssvalidator}
+        alt="css validator logo"
+        titulo="CSS Validator"
+        texto="teste de validação do css"
+        a="https://jigsaw.w3.org/css-validator/"
+      />
+      <BloquinhoImgTexto
+        img={checklistfront}
+        alt="checklistfront logo"
+        titulo="The Front-End"
+        texto="checklist de otimização do front"
+        a="https://frontendchecklist.io/"
+      />
+      <BloquinhoImgTexto
+        img={woorank}
+        alt="woorank logo"
+        titulo="Woorank"
+        texto="teste de SEO"
+        a="https://www.woorank.com/pt/"
+      />
+      <BloquinhoImgTexto
+        img={g4}
+        alt="g4 logo"
+        titulo="Google Analytics"
+        texto="Análise de conversões e visitas"
+        a="https://analytics.google.com/analytics/web/"
+      />
+      <BloquinhoImgTexto
+        img={hover}
+        alt="hover logo"
+        titulo="Hover"
+        texto="compra de domínios"
+        a="https://www.hover.com/"
+      />
+    </div>
+  );
+}
 // Componentes pequenos:
 
 function Doc(props) {
@@ -628,6 +851,11 @@ function NavegacaoDeIndice(props) {
       {rota === "/ferramentas" && <Introducao />}
       {rota === "/ferramentas/uso-frequente" && <UsoFrequente />}
       {rota === "/ferramentas/css" && <Css />}
+      {rota === "/ferramentas/javascript" && <Javascript />}
+      {rota === "/ferramentas/cores" && <Cores />}
+      {rota === "/ferramentas/imagens" && <Imagens />}
+      {rota === "/ferramentas/icones" && <Icones />}
+      {rota === "/ferramentas/testes-e-seo" && <Testeseseo />}
 
       {/* ROTAS DA ABA DOCUMENTACAO > REACT */}
       {rota === "react" && <ReactIntroducao />}

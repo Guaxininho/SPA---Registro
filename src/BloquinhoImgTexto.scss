@@ -2,8 +2,10 @@
   position: relative;
   left: 2%;
   // border: solid red 1px;
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template: 1fr 1fr / repeat(5, 1fr);
+  place-items: center;
+  row-gap: 3rem;
   // align-content: center;
 }
 
@@ -14,12 +16,20 @@
   text-decoration: none;
   width: 12rem;
   align-items: center;
+  gap: 0.25rem;
+
+  &:hover {
+    transform: scale(1.05);
+    // transition: all 0.15s;
+    // background-color: #d9d9d4;
+  }
 
   img {
     height: 5rem;
     width: 5rem;
   }
   h3 {
+    text-align: center;
     color: #212529;
     font-family: "Exo 2", sans-serif;
     font-size: 1.5rem;
