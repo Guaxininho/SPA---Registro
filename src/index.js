@@ -2,6 +2,7 @@ import React, { useRef, useLayoutEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import textos from "./components/textos.js";
+import { useState } from "react";
 
 // CSS
 import "./reset.scss";
@@ -23,6 +24,11 @@ import jsximg from "./img/jsx.png";
 import phpimg from "./img/php.png";
 import pythonimg from "./img/python.png";
 
+// VARIÁVEIS GLOBAIS
+// const navegation = () => {
+//   [navegacao, setNavegacao] = useState(false);
+// };
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
@@ -31,12 +37,6 @@ root.render(
       {/* Rotas da barra de navegação */}
       <Route path="/" exact element={<ConteudoInicial />} />
       <Route path="/documentacao" exact element={<Documentacao />} />
-      <Route path="/ferramentas" exact element={<Documentacao />} />
-      <Route path="/certificados" exact element={<Documentacao />} />
-      <Route path="/portfolio" exact element={<Documentacao />} />
-      <Route path="/roadmap" exact element={<Documentacao />} />
-      <Route path="/contato" exact element={<Documentacao />} />
-
       {/* Subrotas da documentação */}
       <Route path="/documentacao/jsx" exact element={<Doc />} />
       <Route path="/documentacao/css" exact element={<Doc />} />
@@ -45,27 +45,59 @@ root.render(
         path="/documentacao/react"
         exact
         element={
-          <Doc
-            img={reactimg}
-            titulo={textos.React.titulo}
-            introducao={textos.React.introducao}
-          />
+          <>
+            <NavegacaoDeIndice
+              nome1="introdução"
+              rota1="/documentacao/react"
+              nome2="estrutura"
+              rota2="/documentacao/react/estrutura"
+              nome3="regras"
+              rota3="/documentacao/react/regras"
+              nome4="iniciando"
+              rota4="/documentacao/react/iniciando"
+              nome5="componentes"
+              rota5="/documentacao/react/componentes"
+              nome6="props"
+              rota6="/documentacao/react/props"
+              nome7="css"
+              rota7="/documentacao/react/css"
+              nome8="routes"
+              rota8="/documentacao/react/routes"
+            />
+            <Doc
+              img={reactimg}
+              titulo={textos.React.titulo}
+              introducao={textos.React.introducao}
+            />
+          </>
         }
       />
       <Route path="/documentacao/php" exact element={<Doc />} />
       <Route path="/documentacao/python" exact element={<Doc />} />
 
-      {/* Subrotas das doc's */}
-      {/* React */}
+      {/* DOCUMENTAÇÃO > REACT */}
       <Route
         path="/documentacao/react/estrutura"
         exact
         element={
           <React.Fragment>
-            <Doc
-              img={reactimg}
-              titulo={textos.React.titulo}
-              introducao={textos.React.introducao}
+            <NavegacaoDeIndice
+              nome1="introdução"
+              rota1="/documentacao/react"
+              nome2="estrutura"
+              rota2="/documentacao/react/estrutura"
+              nome3="regras"
+              rota3="/documentacao/react/regras"
+              nome4="iniciando"
+              rota4="/documentacao/react/iniciando"
+              nome5="componentes"
+              rota5="/documentacao/react/componentes"
+              nome6="props"
+              rota6="/documentacao/react/props"
+              nome7="css"
+              rota7="/documentacao/react/css"
+              nome8="routes"
+              rota8="/documentacao/react/routes"
             />
             <Secao
               titulo="estrutura"
@@ -82,10 +114,23 @@ root.render(
         exact
         element={
           <React.Fragment>
-            <Doc
-              img={reactimg}
-              titulo={textos.React.titulo}
-              introducao={textos.React.introducao}
+            <NavegacaoDeIndice
+              nome1="introdução"
+              rota1="/documentacao/react"
+              nome2="estrutura"
+              rota2="/documentacao/react/estrutura"
+              nome3="regras"
+              rota3="/documentacao/react/regras"
+              nome4="iniciando"
+              rota4="/documentacao/react/iniciando"
+              nome5="componentes"
+              rota5="/documentacao/react/componentes"
+              nome6="props"
+              rota6="/documentacao/react/props"
+              nome7="css"
+              rota7="/documentacao/react/css"
+              nome8="routes"
+              rota8="/documentacao/react/routes"
             />
             <Secao
               titulo="regras"
@@ -120,10 +165,23 @@ root.render(
         exact
         element={
           <React.Fragment>
-            <Doc
-              img={reactimg}
-              titulo={textos.React.titulo}
-              introducao={textos.React.introducao}
+            <NavegacaoDeIndice
+              nome1="introdução"
+              rota1="/documentacao/react"
+              nome2="estrutura"
+              rota2="/documentacao/react/estrutura"
+              nome3="regras"
+              rota3="/documentacao/react/regras"
+              nome4="iniciando"
+              rota4="/documentacao/react/iniciando"
+              nome5="componentes"
+              rota5="/documentacao/react/componentes"
+              nome6="props"
+              rota6="/documentacao/react/props"
+              nome7="css"
+              rota7="/documentacao/react/css"
+              nome8="routes"
+              rota8="/documentacao/react/routes"
             />
             <Secao
               titulo="iniciando"
@@ -147,10 +205,23 @@ root.render(
         exact
         element={
           <React.Fragment>
-            <Doc
-              img={reactimg}
-              titulo={textos.React.titulo}
-              introducao={textos.React.introducao}
+            <NavegacaoDeIndice
+              nome1="introdução"
+              rota1="/documentacao/react"
+              nome2="estrutura"
+              rota2="/documentacao/react/estrutura"
+              nome3="regras"
+              rota3="/documentacao/react/regras"
+              nome4="iniciando"
+              rota4="/documentacao/react/iniciando"
+              nome5="componentes"
+              rota5="/documentacao/react/componentes"
+              nome6="props"
+              rota6="/documentacao/react/props"
+              nome7="css"
+              rota7="/documentacao/react/css"
+              nome8="routes"
+              rota8="/documentacao/react/routes"
             />
             <Secao
               titulo="componentes"
@@ -179,10 +250,23 @@ root.render(
         exact
         element={
           <React.Fragment>
-            <Doc
-              img={reactimg}
-              titulo={textos.React.titulo}
-              introducao={textos.React.introducao}
+            <NavegacaoDeIndice
+              nome1="introdução"
+              rota1="/documentacao/react"
+              nome2="estrutura"
+              rota2="/documentacao/react/estrutura"
+              nome3="regras"
+              rota3="/documentacao/react/regras"
+              nome4="iniciando"
+              rota4="/documentacao/react/iniciando"
+              nome5="componentes"
+              rota5="/documentacao/react/componentes"
+              nome6="props"
+              rota6="/documentacao/react/props"
+              nome7="css"
+              rota7="/documentacao/react/css"
+              nome8="routes"
+              rota8="/documentacao/react/routes"
             />
             <Secao
               titulo="props"
@@ -222,10 +306,23 @@ root.render(
         exact
         element={
           <React.Fragment>
-            <Doc
-              img={reactimg}
-              titulo={textos.React.titulo}
-              introducao={textos.React.introducao}
+            <NavegacaoDeIndice
+              nome1="introdução"
+              rota1="/documentacao/react"
+              nome2="estrutura"
+              rota2="/documentacao/react/estrutura"
+              nome3="regras"
+              rota3="/documentacao/react/regras"
+              nome4="iniciando"
+              rota4="/documentacao/react/iniciando"
+              nome5="componentes"
+              rota5="/documentacao/react/componentes"
+              nome6="props"
+              rota6="/documentacao/react/props"
+              nome7="css"
+              rota7="/documentacao/react/css"
+              nome8="routes"
+              rota8="/documentacao/react/routes"
             />
             <Secao
               titulo="css"
@@ -246,10 +343,23 @@ root.render(
         exact
         element={
           <React.Fragment>
-            <Doc
-              img={reactimg}
-              titulo={textos.React.titulo}
-              introducao={textos.React.introducao}
+            <NavegacaoDeIndice
+              nome1="introdução"
+              rota1="/documentacao/react"
+              nome2="estrutura"
+              rota2="/documentacao/react/estrutura"
+              nome3="regras"
+              rota3="/documentacao/react/regras"
+              nome4="iniciando"
+              rota4="/documentacao/react/iniciando"
+              nome5="componentes"
+              rota5="/documentacao/react/componentes"
+              nome6="props"
+              rota6="/documentacao/react/props"
+              nome7="css"
+              rota7="/documentacao/react/css"
+              nome8="routes"
+              rota8="/documentacao/react/routes"
             />
             <Secao
               titulo="routes"
@@ -304,6 +414,21 @@ root.render(
           </React.Fragment>
         }
       />
+
+      {/* FIM DA DOCUMENTAÇÃO > REACT */}
+
+      <Route path="/ferramentas" exact element={<Ferramentas />} />
+      {/* Ferranentas */}
+      <Route
+        path="/ferramentas/uso-frequente"
+        exact
+        element={<Ferramentas />}
+      />
+
+      <Route path="/certificados" exact element={<Documentacao />} />
+      <Route path="/portfolio" exact element={<Documentacao />} />
+      <Route path="/roadmap" exact element={<Documentacao />} />
+      <Route path="/contato" exact element={<Documentacao />} />
     </Routes>
   </BrowserRouter>
 );
@@ -412,7 +537,6 @@ function Documentacao() {
 function Doc(props) {
   return (
     <section className="Doc">
-      <NavegacaoDeIndice />
       <div className="DocFlexbox">
         <img className="Doclogo" src={props.img} alt="react" />
         <h1 className="DocTitulo">{props.titulo}</h1>
@@ -492,31 +616,48 @@ function Secao(props) {
 }
 
 function NavegacaoDeIndice(props) {
+  const [rota, setRota] = useState("");
   return (
-    <nav className="NavegacaoDeIndice">
-      <button>
-        <Link to="/documentacao/react/estrutura">Estrutura</Link>
-      </button>
-      <button>
-        <Link to="/documentacao/react/regras">Regras</Link>
-      </button>
-      <button>
-        <Link to="/documentacao/react/iniciando">Iniciando</Link>
-      </button>
-      <button>
-        <Link to="/documentacao/react/componentes">Componentes</Link>
-      </button>
-      <button>
-        <Link to="/documentacao/react/props">Props</Link>
-      </button>
-      <button>
-        <Link to="/documentacao/react/css">CSS</Link>
-      </button>
-      <button>
-        <Link to="/documentacao/react/routes">Routes</Link>
-      </button>
-      <button></button>
-    </nav>
+    <>
+      <nav className="NavegacaoDeIndice">
+        <button
+          onClick={() => {
+            setRota(props.rota1);
+            console.log(rota);
+          }}
+        >
+          <Link to={props.rota1}>{props.nome1}</Link>
+        </button>
+        <button
+          onClick={() => {
+            setRota(props.rota2);
+            console.log(rota);
+          }}
+        >
+          <Link to={props.rota2}>{props.nome2}</Link>
+        </button>
+        <button>
+          <Link to={props.rota3}>{props.nome3}</Link>
+        </button>
+        <button>
+          <Link to={props.rota4}>{props.nome4}</Link>
+        </button>
+        <button>
+          <Link to={props.rota5}>{props.nome5}</Link>
+        </button>
+        <button>
+          <Link to={props.rota6}>{props.nome6}</Link>
+        </button>
+        <button>
+          <Link to={props.rota7}>{props.nome7}</Link>
+        </button>
+        <button>
+          <Link to={props.rota8}>{props.nome8}</Link>
+        </button>
+      </nav>
+      {rota === "/ferramentas" && <Introducao />}
+      {rota === "/ferramentas/uso-frequente" && <UsoFrequente />}
+    </>
   );
 }
 
@@ -525,5 +666,58 @@ function BlocoDeCodigo(props) {
     <pre className="BlocoDeCodigo">
       <code>{props.codigo}</code>
     </pre>
+  );
+}
+
+function Ferramentas() {
+  return (
+    <>
+      <NavegacaoDeIndice
+        nome1="introdução"
+        rota1="/ferramentas"
+        nome2="uso frequente"
+        rota2="/ferramentas/uso-frequente"
+        nome3="css"
+        rota3="/ferramentas/css"
+        nome4="javascript"
+        rota4="/ferramentas/javascript"
+        nome5="cores"
+        rota5="/ferramentas/cores"
+        nome6="imagens"
+        rota6="/ferramentas/imagens"
+        nome7="ícones"
+        rota7="/ferramentas/icones"
+        nome8="Testes e SEO"
+        rota8="/ferramentas/testes-e-seo"
+      />
+    </>
+  );
+}
+
+// function Categoriarenderizada(props) {
+//   return (
+
+//   );
+// }
+
+function Introducao() {
+  return (
+    <section className="Introducao">
+      <h1>Introdução</h1>
+      <p>
+        Nesta seção você encontrará uma lista de ferramentas que podem ser úteis
+        para o desenvolvimento de sites e aplicativos web.
+        <button onClick={() => {}}>Me clica</button>
+      </p>
+    </section>
+  );
+}
+
+function UsoFrequente() {
+  return (
+    <section className="UsoFrequente">
+      <h1>Uso frequente</h1>
+      <p>USO FREQUENTE</p>
+    </section>
   );
 }
