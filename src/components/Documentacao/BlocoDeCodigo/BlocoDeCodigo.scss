@@ -1,0 +1,16 @@
+.BlocoDeCodigo {
+  position: relative;
+  margin-top: 0.5rem;
+  background-color: #212529;
+  color: #f2f2ee;
+  padding: 1rem 0.5rem;
+  // padding-right: 20rem;
+  left: -1%;
+  white-space: pre-line;
+  // border: 1px solid blue;
+
+  code {
+    overflow: hidden;
+    // border: 1px solid red;
+  }
+}

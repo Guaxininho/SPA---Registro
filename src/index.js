@@ -6,15 +6,16 @@ import { useState } from "react";
 
 // CSS
 import "./reset.scss";
-import "./navegacao.scss";
 import "./fonts.scss";
-import "./conteudoInicial.scss";
-import "./documentacao.scss";
-import "./doc.scss";
-import "./secao.scss";
-import "./navegacaoDeIndice.scss";
-import "./introducao.scss";
-import "./BloquinhoImgTexto.scss";
+import "./components/Navegacao/navegacao.scss";
+import "./components/ConteudoInicial/conteudoInicial.scss";
+import "./components/Documentacao/documentacao.scss";
+import "./components/NavegacaoDeIndice/navegacaoDeIndice.scss";
+import "./components/Documentacao/Introdoc/IntroDoc.scss";
+import "./components/Documentacao/Secao/secao.scss";
+import "./components/Documentacao/BlocoDeCodigo/BlocoDeCodigo.scss";
+import "./components/Ferramentas/Introducao/introducao.scss";
+import "./components/Ferramentas/BloquinhoImgTexto/BloquinhoImgTexto.scss";
 
 //Imagens
 import logoimg from "./img/logo.png";
@@ -70,12 +71,12 @@ root.render(
       <Route path="/roadmap" exact element={<Documentacao />} />
       <Route path="/contato" exact element={<Documentacao />} />
       {/* Subrotas da documentação */}
-      <Route path="/documentacao/jsx" exact element={<Doc />} />
-      <Route path="/documentacao/css" exact element={<Doc />} />
-      <Route path="/documentacao/javascript" exact element={<Doc />} />
+      <Route path="/documentacao/jsx" exact element={<Introdoc />} />
+      <Route path="/documentacao/css" exact element={<Introdoc />} />
+      <Route path="/documentacao/javascript" exact element={<Introdoc />} />
       <Route path="/documentacao/react" exact element={<DocReact />} />
-      <Route path="/documentacao/php" exact element={<Doc />} />
-      <Route path="/documentacao/python" exact element={<Doc />} />
+      <Route path="/documentacao/php" exact element={<Introdoc />} />
+      <Route path="/documentacao/python" exact element={<Introdoc />} />
     </Routes>
   </BrowserRouter>
 );
@@ -213,7 +214,7 @@ function DocReact() {
 
 function ReactIntroducao() {
   return (
-    <Doc
+    <Introdoc
       img={reactimg}
       titulo={textos.React.titulo}
       introducao={textos.React.introducao}
@@ -696,8 +697,8 @@ function Testeseseo() {
 }
 // Componentes pequenos:
 
-function Doc(props) {
-  // COMPONENTE RESPONSÁVEL PELA INTRODUÇÃO DE PÁGINAS DA DOC, COMO JSX, CSS, JAVASCRIPT, PHP E PYTHON (RECEBE TEXTOS DE TEXTOS.JS)
+function Introdoc(props) {
+  // COMPONENTE RESPONSÁVEL PELA INTRODUÇÃO DE PÁGINAS DOC, COMO JSX, CSS, JAVASCRIPT, PHP E PYTHON (RECEBE TEXTOS DE TEXTOS.JS)
 
   return (
     <section className="Doc">
@@ -719,10 +720,8 @@ function Secao(props) {
     // manipulação do DOM para esconder os itens vazios
     const container = containerRef.current;
     const li = container.querySelectorAll("li");
-    console.log(li.length);
 
     for (let i = 0; i < li.length; i++) {
-      console.log(li[i].innerText);
       if (li[i].innerText === "") {
         li[i].style.display = "none";
       }
