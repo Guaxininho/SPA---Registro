@@ -16,6 +16,7 @@ import "./components/Documentacao/Secao/secao.scss";
 import "./components/Documentacao/BlocoDeCodigo/BlocoDeCodigo.scss";
 import "./components/Ferramentas/Introducao/introducao.scss";
 import "./components/Ferramentas/BloquinhoImgTexto/BloquinhoImgTexto.scss";
+import "./components/Navegacao/Hamburguer/hamburguer.scss";
 
 //Imagens
 import logoimg from "./img/logo.png";
@@ -84,6 +85,9 @@ root.render(
 // PRETENDO SEPARAR ISSO EM OUTROS ARQUIVOS, MAS POR AGORA PARA MELHOR APRENDIZADO ESTÁ AQUI, ESTA EM ORDEM:
 function Navegacao() {
   // COMPONENTE RESPONSÁVEL PELA NAVEGAÇÃO PRINCIPAL
+  const [hambestado, setHambestado] = useState(false);
+  const [alturaMenu, setAlturaMenu] = useState(0);
+  const [mostrar, setMostrar] = useState("0rem");
   return (
     <React.Fragment>
       <nav className="NavegacaoPrincipal">
@@ -91,6 +95,25 @@ function Navegacao() {
         <h1>
           <Link to="/">Registro</Link>
         </h1>
+        <div
+          className={`hamburguer btn ${hambestado}`}
+          onClick={() => {
+            setHambestado(!hambestado);
+            if (hambestado === true) {
+              setAlturaMenu("0");
+              setMostrar("0rem");
+            } else {
+              setAlturaMenu("40");
+              setTimeout(() => {
+                setMostrar("2rem");
+              }, 200);
+            }
+          }}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <div className="flexDeNavegacao">
           <button>
             <Link to="/documentacao">Documentação</Link>
@@ -112,6 +135,26 @@ function Navegacao() {
           </button>
         </div>
       </nav>
+      <div className="caixaMenu" style={{ height: `${alturaMenu}rem` }}>
+        <button style={{ fontSize: mostrar }}>
+          <Link to="/documentacao">Documentação</Link>
+        </button>
+        <button style={{ fontSize: mostrar }}>
+          <Link to="/ferramentas">Ferramentas</Link>
+        </button>
+        <button style={{ fontSize: mostrar }}>
+          <Link to="/certificados">Certificados</Link>
+        </button>
+        <button style={{ fontSize: mostrar }}>
+          <Link to="/portfolio">Portfólio</Link>
+        </button>
+        <button style={{ fontSize: mostrar }}>
+          <Link to="/roadmap">Roadmap</Link>
+        </button>
+        <button style={{ fontSize: mostrar }}>
+          <Link to="/contato">Contato</Link>
+        </button>
+      </div>
     </React.Fragment>
   );
 }
