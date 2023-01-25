@@ -136,24 +136,71 @@ function Navegacao() {
         </div>
       </nav>
       <div className="caixaMenu" style={{ height: `${alturaMenu}rem` }}>
-        <button style={{ fontSize: mostrar }}>
-          <Link to="/documentacao">Documentação</Link>
-        </button>
-        <button style={{ fontSize: mostrar }}>
-          <Link to="/ferramentas">Ferramentas</Link>
-        </button>
-        <button style={{ fontSize: mostrar }}>
-          <Link to="/certificados">Certificados</Link>
-        </button>
-        <button style={{ fontSize: mostrar }}>
-          <Link to="/portfolio">Portfólio</Link>
-        </button>
-        <button style={{ fontSize: mostrar }}>
-          <Link to="/roadmap">Roadmap</Link>
-        </button>
-        <button style={{ fontSize: mostrar }}>
-          <Link to="/contato">Contato</Link>
-        </button>
+        <Link
+          to="/documentacao"
+          onClick={() => {
+            setHambestado(!hambestado);
+            setAlturaMenu("0");
+            setMostrar("0rem");
+          }}
+        >
+          <button style={{ fontSize: mostrar }}>Documentação</button>
+        </Link>
+
+        <Link
+          to="/ferramentas"
+          onClick={() => {
+            setHambestado(!hambestado);
+            setAlturaMenu("0");
+            setMostrar("0rem");
+          }}
+        >
+          <button style={{ fontSize: mostrar }}>Ferramentas </button>
+        </Link>
+
+        <Link
+          to="/certificados"
+          onClick={() => {
+            setHambestado(!hambestado);
+            setAlturaMenu("0");
+            setMostrar("0rem");
+          }}
+        >
+          <button style={{ fontSize: mostrar }}>Certificados </button>
+        </Link>
+
+        <Link
+          to="/portfolio"
+          onClick={() => {
+            setHambestado(!hambestado);
+            setAlturaMenu("0");
+            setMostrar("0rem");
+          }}
+        >
+          <button style={{ fontSize: mostrar }}>Portfólio </button>
+        </Link>
+
+        <Link
+          to="/roadmap"
+          onClick={() => {
+            setHambestado(!hambestado);
+            setAlturaMenu("0");
+            setMostrar("0rem");
+          }}
+        >
+          <button style={{ fontSize: mostrar }}>Roadmap </button>
+        </Link>
+
+        <Link
+          to="/contato"
+          onClick={() => {
+            setHambestado(!hambestado);
+            setAlturaMenu("0");
+            setMostrar("0rem");
+          }}
+        >
+          <button style={{ fontSize: mostrar }}>Contato</button>
+        </Link>
       </div>
     </React.Fragment>
   );

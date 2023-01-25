@@ -37,3 +37,13 @@
     }
   }
 }
+
+@media (max-width: 497px) {
+  .Documentacao {
+    .flexIconesDeDocumentacao {
+      display: grid;
+      grid-template: 1fr 1fr / repeat(3, 1fr);
+      row-gap: 3rem;
+    }
+  }
+}
