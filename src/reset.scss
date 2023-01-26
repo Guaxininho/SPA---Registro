@@ -15,3 +15,24 @@ body {
 html {
   font-size: 62.5%;
 }
+
+.Construcao {
+  position: relative;
+  left: 2%;
+  // border: 1px solid blue;
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-family: "Exo 2", sans-serif;
+    font-weight: 200;
+    margin-bottom: 1rem;
+    letter-spacing: 0.2rem;
+  }
+  img {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 52rem;
+  }
+}

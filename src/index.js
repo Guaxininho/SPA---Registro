@@ -58,6 +58,9 @@ import g4 from "./img/g4.png";
 import hover from "./img/hover.png";
 import esquerda from "./img/esquerda.png";
 import direita from "./img/direita.png";
+import shadow from "./img/shadow.png";
+import components from "./img/components.png";
+import construcao from "./img/construcao.png";
 
 const root = ReactDOM.createRoot(document.getElementById("root")); // AQUI É ONDE O REACT DOM É RENDERIZADO
 root.render(
@@ -69,17 +72,17 @@ root.render(
       <Route path="/" exact element={<ConteudoInicial />} />
       <Route path="/documentacao" exact element={<Documentacao />} />
       <Route path="/ferramentas" exact element={<Ferramentas />} />
-      <Route path="/certificados" exact element={<Documentacao />} />
-      <Route path="/portfolio" exact element={<Documentacao />} />
-      <Route path="/roadmap" exact element={<Documentacao />} />
-      <Route path="/contato" exact element={<Documentacao />} />
+      <Route path="/certificados" exact element={<Construcao />} />
+      <Route path="/portfolio" exact element={<Construcao />} />
+      <Route path="/roadmap" exact element={<Construcao />} />
+      <Route path="/contato" exact element={<Construcao />} />
       {/* Subrotas da documentação */}
-      <Route path="/documentacao/jsx" exact element={<Introdoc />} />
-      <Route path="/documentacao/css" exact element={<Introdoc />} />
-      <Route path="/documentacao/javascript" exact element={<Introdoc />} />
+      <Route path="/documentacao/jsx" exact element={<Construcao />} />
+      <Route path="/documentacao/css" exact element={<Construcao />} />
+      <Route path="/documentacao/javascript" exact element={<Construcao />} />
       <Route path="/documentacao/react" exact element={<DocReact />} />
-      <Route path="/documentacao/php" exact element={<Introdoc />} />
-      <Route path="/documentacao/python" exact element={<Introdoc />} />
+      <Route path="/documentacao/php" exact element={<Construcao />} />
+      <Route path="/documentacao/python" exact element={<Construcao />} />
     </Routes>
   </BrowserRouter>
 );
@@ -510,8 +513,6 @@ function Ferramentas() {
       rota7="/ferramentas/icones"
       nome8="Testes e SEO"
       rota8="/ferramentas/testes-e-seo"
-      nome9="Outros"
-      rota9="/ferramentas/outros"
     />
   );
 }
@@ -585,6 +586,20 @@ function Css() {
         titulo="CP Maker"
         texto="Gerador de clip-path"
         a="https://bennettfeely.com/clippy/"
+      />
+      <BloquinhoImgTexto
+        img={shadow}
+        alt="Box shadow logo"
+        titulo="Box shadow generator"
+        texto="box-shadow com maior precisão"
+        a="https://www.cssmatic.com/box-shadow"
+      />
+      <BloquinhoImgTexto
+        img={components}
+        alt="Free front-end logo"
+        titulo="Free front-end"
+        texto="Diversos componentes de css"
+        a="https://freefrontend.com/"
       />
     </div>
   );
@@ -1102,5 +1117,14 @@ function BloquinhoImgTexto(props) {
       <h3>{props.titulo}</h3>
       <p>{props.texto}</p>
     </a>
+  );
+}
+
+function Construcao() {
+  return (
+    <div className="Construcao">
+      <h1>Em construção, por favor aguarde...</h1>
+      <img src={construcao} />;
+    </div>
   );
 }
