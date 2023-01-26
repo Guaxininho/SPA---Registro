@@ -43,3 +43,14 @@
     font-weight: 300;
   }
 }
+
+@media (max-width: 617px) {
+  .ferramentasFlex {
+    grid-template: 1fr 1fr / repeat(4, 1fr);
+  }
+}
+@media (max-width: 496px) {
+  .ferramentasFlex {
+    grid-template: 1fr 1fr / repeat(3, 1fr);
+  }
+}

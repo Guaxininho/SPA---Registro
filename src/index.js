@@ -511,6 +511,7 @@ function Ferramentas() {
       nome8="Testes e SEO"
       rota8="/ferramentas/testes-e-seo"
       nome9="Outros"
+      rota9="/ferramentas/outros"
     />
   );
 }
@@ -877,6 +878,8 @@ function Secao(props) {
 function NavegacaoDeIndice(props) {
   // COMPONENTE RESPONSÁVEL PELA SUBNAVEGAÇÃO DE ÍNDICES DE TODAS AS PÁGINAS
 
+  let tamanhoDoMenu = (Object.keys(props).length - 1) / 2;
+
   const [rota, setRota] = useState(props.default);
   const [slotNome1, setSlotNome1] = useState(props.nome1);
   const [slotNome2, setSlotNome2] = useState(props.nome2);
@@ -905,7 +908,67 @@ function NavegacaoDeIndice(props) {
   return (
     <>
       <nav className="NavegacaoDeIndice" ref={containerRef}>
-        <button>
+        <button
+          onClick={() => {
+            console.log(tamanhoDoMenu);
+            if (slotNome1 === props.nome1) {
+              let categoria = tamanhoDoMenu / 4;
+              if (categoria > 2 && categoria <= 3) {
+                setSlotNome1(props.nome9);
+                setSlotNome2(props.nome10);
+                setSlotNome3(props.nome11);
+                setSlotNome4(props.nome12);
+
+                setSlotRota1(props.rota9);
+                setSlotRota2(props.rota10);
+                setSlotRota3(props.rota11);
+                setSlotRota4(props.rota12);
+              } else if (categoria > 1 && categoria <= 2) {
+                setSlotNome1(props.nome5);
+                setSlotNome2(props.nome6);
+                setSlotNome3(props.nome7);
+                setSlotNome4(props.nome8);
+
+                setSlotRota1(props.rota5);
+                setSlotRota2(props.rota6);
+                setSlotRota3(props.rota7);
+                setSlotRota4(props.rota8);
+              } else if (categoria <= 1) {
+                setSlotNome1(props.nome1);
+                setSlotNome2(props.nome2);
+                setSlotNome3(props.nome3);
+                setSlotNome4(props.nome4);
+
+                setSlotRota1(props.rota1);
+                setSlotRota2(props.rota2);
+                setSlotRota3(props.rota3);
+                setSlotRota4(props.rota4);
+              }
+            } else if (slotNome1 === props.nome5) {
+              // 2 fileira voltando
+              setSlotNome1(props.nome1);
+              setSlotNome2(props.nome2);
+              setSlotNome3(props.nome3);
+              setSlotNome4(props.nome4);
+
+              setSlotRota1(props.rota1);
+              setSlotRota2(props.rota2);
+              setSlotRota3(props.rota3);
+              setSlotRota4(props.rota4);
+            } else if (slotNome1 === props.nome9) {
+              // 3 fileira voltando
+              setSlotNome1(props.nome5);
+              setSlotNome2(props.nome6);
+              setSlotNome3(props.nome7);
+              setSlotNome4(props.nome8);
+
+              setSlotRota1(props.rota5);
+              setSlotRota2(props.rota6);
+              setSlotRota3(props.rota7);
+              setSlotRota4(props.rota8);
+            }
+          }}
+        >
           <img src={esquerda} alt="seta esquerda" />
         </button>
         <button
@@ -944,6 +1007,7 @@ function NavegacaoDeIndice(props) {
         <button
           onClick={() => {
             if (slotNome1 === props.nome1) {
+              // se o nome do slot 1 for igual ao nome 1, então a próxima categoria é a 5
               setSlotNome1(props.nome5);
               setSlotNome2(props.nome6);
               setSlotNome3(props.nome7);
@@ -955,6 +1019,7 @@ function NavegacaoDeIndice(props) {
               setSlotRota4(props.rota8);
             }
             if (slotNome1 === props.nome5 && props.nome9 === undefined) {
+              // Se já estiver na categoria 2, e a 3 não existir a próxima é a 1
               setSlotNome1(props.nome1);
               setSlotNome2(props.nome2);
               setSlotNome3(props.nome3);
@@ -966,6 +1031,7 @@ function NavegacaoDeIndice(props) {
               setSlotRota4(props.rota4);
             }
             if (slotNome1 === props.nome5 && props.nome9 !== undefined) {
+              // Se já estiver na categoria 2, e a 3 existir a próxima é a 3
               setSlotNome1(props.nome9);
               setSlotNome2(props.nome10);
               setSlotNome3(props.nome11);
@@ -977,6 +1043,7 @@ function NavegacaoDeIndice(props) {
               setSlotRota4(props.rota12);
             }
             if (slotNome1 === props.nome9 && props.nome13 === undefined) {
+              // Se já estiver na categoria 3, e a 4 não existir a próxima é a 1
               setSlotNome1(props.nome1);
               setSlotNome2(props.nome2);
               setSlotNome3(props.nome3);
