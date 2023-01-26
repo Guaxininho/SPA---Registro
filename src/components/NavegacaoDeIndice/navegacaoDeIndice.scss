@@ -1,10 +1,13 @@
 .NavegacaoDeIndice {
   // border: 1px solid red;
   position: relative;
-  left: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
   bottom: 3rem;
   padding: 1rem 0rem;
   display: flex;
+  gap: 1rem;
   button {
     // border: 1px solid blue;
     border: none;
@@ -14,7 +17,6 @@
     font-weight: 300;
     cursor: pointer;
     letter-spacing: 0.07rem;
-    margin-right: 2rem;
     &::first-letter {
       text-transform: uppercase;
     }
@@ -22,5 +24,20 @@
       color: #4d4f4f;
       text-decoration: none;
     }
+    img {
+      opacity: 0.9;
+      width: 1.5rem;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 }
+
+// @media (max-width: 821px) {
+//   .NavegacaoDeIndice {
+//   }
+// }

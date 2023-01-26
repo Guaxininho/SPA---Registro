@@ -56,6 +56,8 @@ import checklistfront from "./img/checklistfront.png";
 import woorank from "./img/woorank.png";
 import g4 from "./img/g4.png";
 import hover from "./img/hover.png";
+import esquerda from "./img/esquerda.png";
+import direita from "./img/direita.png";
 
 const root = ReactDOM.createRoot(document.getElementById("root")); // AQUI É ONDE O REACT DOM É RENDERIZADO
 root.render(
@@ -508,6 +510,7 @@ function Ferramentas() {
       rota7="/ferramentas/icones"
       nome8="Testes e SEO"
       rota8="/ferramentas/testes-e-seo"
+      nome9="Outros"
     />
   );
 }
@@ -873,65 +876,120 @@ function Secao(props) {
 
 function NavegacaoDeIndice(props) {
   // COMPONENTE RESPONSÁVEL PELA SUBNAVEGAÇÃO DE ÍNDICES DE TODAS AS PÁGINAS
+
   const [rota, setRota] = useState(props.default);
+  const [slotNome1, setSlotNome1] = useState(props.nome1);
+  const [slotNome2, setSlotNome2] = useState(props.nome2);
+  const [slotNome3, setSlotNome3] = useState(props.nome3);
+  const [slotNome4, setSlotNome4] = useState(props.nome4);
+
+  const [slotRota1, setSlotRota1] = useState(props.rota1);
+  const [slotRota2, setSlotRota2] = useState(props.rota2);
+  const [slotRota3, setSlotRota3] = useState(props.rota3);
+  const [slotRota4, setSlotRota4] = useState(props.rota4);
+
+  const containerRef = useRef();
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    const botoes = container.querySelectorAll(".botaoSubMenu");
+
+    for (let i = 0; i < botoes.length; i++) {
+      if (botoes[i].innerText === "") {
+        botoes[i].style.display = "none";
+      } else {
+        botoes[i].style.display = "block";
+      }
+    }
+  });
+
   return (
     <>
-      <nav className="NavegacaoDeIndice">
-        <button
-          onClick={() => {
-            setRota(props.rota1);
-          }}
-        >
-          {props.nome1}
+      <nav className="NavegacaoDeIndice" ref={containerRef}>
+        <button>
+          <img src={esquerda} alt="seta esquerda" />
         </button>
         <button
+          className="botaoSubMenu"
           onClick={() => {
-            setRota(props.rota2);
+            setRota(slotRota1);
           }}
         >
-          {props.nome2}
+          {slotNome1}
         </button>
         <button
+          className="botaoSubMenu"
           onClick={() => {
-            setRota(props.rota3);
+            setRota(slotRota2);
           }}
         >
-          {props.nome3}
+          {slotNome2}
         </button>
         <button
+          className="botaoSubMenu"
           onClick={() => {
-            setRota(props.rota4);
+            setRota(slotRota3);
           }}
         >
-          {props.nome4}
+          {slotNome3}
         </button>
         <button
+          className="botaoSubMenu"
           onClick={() => {
-            setRota(props.rota5);
+            setRota(slotRota4);
           }}
         >
-          {props.nome5}
+          {slotNome4}
         </button>
+
         <button
           onClick={() => {
-            setRota(props.rota6);
+            if (slotNome1 === props.nome1) {
+              setSlotNome1(props.nome5);
+              setSlotNome2(props.nome6);
+              setSlotNome3(props.nome7);
+              setSlotNome4(props.nome8);
+
+              setSlotRota1(props.rota5);
+              setSlotRota2(props.rota6);
+              setSlotRota3(props.rota7);
+              setSlotRota4(props.rota8);
+            }
+            if (slotNome1 === props.nome5 && props.nome9 === undefined) {
+              setSlotNome1(props.nome1);
+              setSlotNome2(props.nome2);
+              setSlotNome3(props.nome3);
+              setSlotNome4(props.nome4);
+
+              setSlotRota1(props.rota1);
+              setSlotRota2(props.rota2);
+              setSlotRota3(props.rota3);
+              setSlotRota4(props.rota4);
+            }
+            if (slotNome1 === props.nome5 && props.nome9 !== undefined) {
+              setSlotNome1(props.nome9);
+              setSlotNome2(props.nome10);
+              setSlotNome3(props.nome11);
+              setSlotNome4(props.nome12);
+
+              setSlotRota1(props.rota9);
+              setSlotRota2(props.rota10);
+              setSlotRota3(props.rota11);
+              setSlotRota4(props.rota12);
+            }
+            if (slotNome1 === props.nome9 && props.nome13 === undefined) {
+              setSlotNome1(props.nome1);
+              setSlotNome2(props.nome2);
+              setSlotNome3(props.nome3);
+              setSlotNome4(props.nome4);
+
+              setSlotRota1(props.rota1);
+              setSlotRota2(props.rota2);
+              setSlotRota3(props.rota3);
+              setSlotRota4(props.rota4);
+            }
           }}
         >
-          {props.nome6}
-        </button>
-        <button
-          onClick={() => {
-            setRota(props.rota7);
-          }}
-        >
-          {props.nome7}
-        </button>
-        <button
-          onClick={() => {
-            setRota(props.rota8);
-          }}
-        >
-          {props.nome8}
+          <img src={direita} alt="seta direita" />
         </button>
       </nav>
 
