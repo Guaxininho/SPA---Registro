@@ -17,6 +17,8 @@ import "./components/Documentacao/BlocoDeCodigo/BlocoDeCodigo.scss";
 import "./components/Ferramentas/Introducao/introducao.scss";
 import "./components/Ferramentas/BloquinhoImgTexto/BloquinhoImgTexto.scss";
 import "./components/Navegacao/Hamburguer/hamburguer.scss";
+import "./components/Certificados/Curso/curso.scss";
+import "./components/Certificados/certificado.scss";
 
 //Imagens
 import logoimg from "./img/logo.png";
@@ -61,6 +63,7 @@ import direita from "./img/direita.png";
 import shadow from "./img/shadow.png";
 import components from "./img/components.png";
 import construcao from "./img/construcao.png";
+import testecurso from "./img/testecurso.jpeg";
 
 const root = ReactDOM.createRoot(document.getElementById("root")); // AQUI É ONDE O REACT DOM É RENDERIZADO
 root.render(
@@ -72,7 +75,7 @@ root.render(
       <Route path="/" exact element={<ConteudoInicial />} />
       <Route path="/documentacao" exact element={<Documentacao />} />
       <Route path="/ferramentas" exact element={<Ferramentas />} />
-      <Route path="/certificados" exact element={<Construcao />} />
+      <Route path="/certificados" exact element={<Certificados />} />
       <Route path="/portfolio" exact element={<Construcao />} />
       <Route path="/roadmap" exact element={<Construcao />} />
       <Route path="/contato" exact element={<Construcao />} />
@@ -83,6 +86,12 @@ root.render(
       <Route path="/documentacao/react" exact element={<DocReact />} />
       <Route path="/documentacao/php" exact element={<Construcao />} />
       <Route path="/documentacao/python" exact element={<Construcao />} />
+      {/* Subrotas da certificados */}
+      <Route
+        path="/certificados/htmlandcss"
+        exact
+        element={<Certificadohorizontal />}
+      />
     </Routes>
   </BrowserRouter>
 );
@@ -1125,6 +1134,52 @@ function Construcao() {
     <div className="Construcao">
       <h1>Em construção, por favor aguarde...</h1>
       <img src={construcao} />;
+    </div>
+  );
+}
+
+function Certificados() {
+  return (
+    <div className="Certificados">
+      <Curso
+        img={testecurso}
+        titulo="Build Responsive Real-World Websites with HTML and CSS"
+        autor="Jonas Schmedtmann"
+        completo="100"
+      />
+      <Curso
+        img={testecurso}
+        titulo="The Complete Javascript Course 2023: From Zero to Expert!"
+        autor="Jonas Schmedtmann"
+        completo="95"
+      />
+    </div>
+  );
+}
+
+function Curso(props) {
+  return (
+    <a className="boxCurso">
+      <img src={props.img} />
+      <h1>{props.titulo}</h1>
+      <h4>{props.autor}</h4>
+      <figure className="barravazia">
+        <figure
+          className="barracheia"
+          style={{ width: `${props.completo}%` }}
+        ></figure>
+      </figure>
+      <p>{`${props.completo}% concluído`}</p>
+    </a>
+  );
+}
+
+function Certificadohorizontal() {
+  return (
+    <div className="Certificadohorizontal">
+      <h1>Curso de Javascript Completo 2021</h1>
+      <h4>Jonas Schmedtmann</h4>
+      {/* <img src={certificado} /> */}
     </div>
   );
 }

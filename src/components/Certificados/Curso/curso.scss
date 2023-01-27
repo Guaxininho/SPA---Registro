@@ -1,0 +1,39 @@
+.boxCurso {
+  cursor: pointer;
+  img {
+    width: 22.7rem;
+    height: 12.8rem;
+    margin-bottom: 0.2rem;
+  }
+  h1 {
+    max-width: 22.7rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 0.2rem;
+  }
+  h4 {
+    max-width: 22.7rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #4d4f4f;
+    margin-bottom: 0.2rem;
+  }
+  .barravazia {
+    width: 22.7rem;
+    height: 0.2rem;
+    background-color: #e5e5e5;
+    margin-bottom: 0.2rem;
+  }
+  .barracheia {
+    height: 0.2rem;
+    background-color: #6923f5;
+  }
+  p {
+    max-width: 22.7rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #4d4f4f;
+    margin-bottom: 0.2rem;
+  }
+}
