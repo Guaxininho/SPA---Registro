@@ -85,7 +85,7 @@ root.render(
       <Route path="/documentacao/javascript" exact element={<Construcao />} />
       <Route path="/documentacao/react" exact element={<DocReact />} />
       <Route path="/documentacao/php" exact element={<Construcao />} />
-      <Route path="/documentacao/python" exact element={<Construcao />} />
+      <Route path="/documentacao/python" exact element={<DocPython />} />
       {/* Subrotas da certificados */}
       <Route
         path="/certificados/htmlandcss"
@@ -500,6 +500,201 @@ function ReactRoutes() {
   );
 }
 
+function DocPython() {
+  return (
+    <NavegacaoDeIndice
+      default="python"
+      nome1="introdução"
+      rota1="/documentacao/python"
+      nome2="vs code"
+      rota2="/documentacao/python/vscode"
+      nome3="nomenclaturas"
+      rota3="/documentacao/python/nomenclaturas"
+      nome4="tipos de dados"
+      rota4="/documentacao/python/tiposdedados"
+      nome5="operadores"
+      rota5="/documentacao/python/operadores"
+      nome6="loops"
+      rota6="/documentacao/python/loops"
+      nome7="statement"
+      rota7="/documentacao/python/statement"
+      nome8="string interpolation"
+      rota8="/documentacao/python/stringinterpolation"
+      nome9="Boas práticas"
+      rota9="/documentacao/python/boaspraticas"
+    />
+  );
+}
+
+// COMPONENTES DE CONTEÚDO DA ABA DOCUMENTACAO > PYTHON
+
+function PythonIntroducao() {
+  return (
+    <Introdoc
+      img={pythonimg}
+      titulo={textos.Python.titulo}
+      introducao={textos.Python.introducao}
+    />
+  );
+}
+
+function PythonVsCode() {
+  return (
+    <Secao
+      titulo="Extensões para VS code"
+      li1="Python - Auto complete, é possível através dele alterar o interpretador que está sendo usado, por exemplo python 2, 3 e etc. É possível deixar o mouse em cima de um objeto e ele já traz a documentação do objeto, além de outras funcionalidades."
+      li2='Python Preview - Representação visual do código, é possível ver o código em forma de árvore, por exemplo. De onde veio a variável, para onde ela vai, etc. Para usar é só clicar com o botão direito do mouse e selecionar "Python Preview: Show Python Preview to the Side" ou "Python Preview: Show Python Preview Below".'
+      li3='Autodocstring - Com isso é possível criar documentação para funções e trechos de código explicando como se usa e etc. Para usar é só clicar com o botão direito do mouse e selecionar "Autodocstring: Generate Docstring" ou "Autodocstring: Generate Docstring for Class", ou usar 3 aspas duplas e apertar enter.'
+      li4='Autopep8: Formata o código de acordo com o padrão pep8, para usar é só clicar com o botão direito do mouse e selecionar "Format Document" ou "Format Selection". Mas é possível configurar para usar sempre que salvar. Caso já possua um padrão para outras lingugagens que era o meu caso, a forma de conseguir isso é inserindo esse trecho de código no F1 > Preferences: Open Settings (JSON):'
+      codigo4={
+        <BlocoDeCodigo
+          codigo='"[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+      }'
+        />
+      }
+    />
+  );
+}
+
+function PythonNomenclatura() {
+  return (
+    <Secao
+      titulo="Nomenclaturas"
+      li1="PIP - Instalador de pacotes do python (Python Installer Package)"
+    />
+  );
+}
+function PythonTiposDeDados() {
+  return (
+    <Secao
+      titulo="Tipos de Dados"
+      li1="Para criar variável no python é só digitar o nome da variável e depois o sinal de igual e o valor da variável, exemplo:"
+      codigo1={<BlocoDeCodigo codigo='nome = "João"' />}
+      li1b="A tipagem é dinâmica, ou seja, o tipo do dado já é definido automaticamente quando atribuimos um valor, não é preciso dizer se é uma string, um int ou um float, por exemplo. Para saber o tipo de dado de uma variável, basta usar a função type(), exemplo:"
+      codigo1b={<BlocoDeCodigo codigo="print(type(nome))" />}
+      li2="Dentre os tipos possíveis, temos, int, float, str, bool, list e etc."
+      li3="Int - são números inteiros, exemplo:"
+      codigo3={<BlocoDeCodigo codigo="idade = 20" />}
+      li4="Float - são números decimais, exemplo:"
+      codigo4={<BlocoDeCodigo codigo="altura = 1.80" />}
+      li5="Str - são strings, nomes, exemplo:"
+      codigo5={<BlocoDeCodigo codigo='nome = "João"' />}
+      li6="Bool - são booleanos, são valores que podem ser verdadeiro ou falso, exemplo:"
+      codigo6={<BlocoDeCodigo codigo="ativo = True" />}
+      li7="List - são listas, são coleções de dados, exemplo:"
+      codigo7={<BlocoDeCodigo codigo='lista = ["João", 20, 1.80]' />}
+    />
+  );
+}
+
+function PythonOperadores() {
+  return (
+    <Secao
+      titulo="Operadores"
+      li1="Operadores aritméticos - São operadores que fazem operações matemáticas, exemplo:"
+      codigo1={
+        <BlocoDeCodigo
+          codigo="+ soma 
+      - subtração
+      * multiplicação 
+      / divisão
+      ** potenciação 
+      // divisão inteira
+      % resto da divisão"
+        />
+      }
+      li2="Operadores de comparação - São operadores que fazem comparações, exemplo"
+      codigo2={
+        <BlocoDeCodigo
+          codigo="== (igual a)
+      != (diferente de)
+      > (maior que)
+      < (menor que)
+      >= (maior ou igual a)
+      <= (menor ou igual a)"
+        />
+      }
+      li3="Operadores lógicos - São operadores que fazem comparações lógicas, exemplo:"
+      codigo3={<BlocoDeCodigo codigo="and (e), or (ou), not (não)" />}
+      li4="Operadores de atribuição - São operadores que atribuem valores, exemplo:"
+      codigo4={
+        <BlocoDeCodigo
+          codigo="= (atribuição)
+        += (soma e atribuição)
+        -= (subtração e atribuição)
+        *= (multiplicação e atribuição)
+        /= (divisão e atribuição)
+        **= (potenciação e atribuição)
+        //= (divisão inteira e atribuição)
+        %= (resto da divisão e atribuição)"
+        />
+      }
+      li5="Operadores de identidade - São operadores que verificam se os valores são iguais, exemplo:"
+      codigo5={<BlocoDeCodigo codigo="is (igual a), is not (diferente de)" />}
+      li6="Operadores de associação - São operadores que verificam se um valor está contido em outro, exemplo:"
+      codigo6={
+        <BlocoDeCodigo codigo="in (está contido), not in (não está contido)" />
+      }
+    />
+  );
+}
+
+function PythonLoops() {
+  return (
+    <Secao
+      titulo="Loops"
+      li1="while - enquanto for verdadeiro, faça isso, exemplo:"
+      codigo1={
+        <BlocoDeCodigo
+          codigo='while True:
+      print("Vai travar o computador de tanto repetir")'
+        />
+      }
+      li2="for range in: - é possível definir um range com os 2 primeiros paramêtros e o número não chega ao segundo parâmetro. de 0 a 10 chegaria a 9. Ainda é possível definir um terceiro parâmetro que é o passo, se quiser de 2 em 2 por exemplo, é só colocar 2 no terceiro parâmetro"
+      codigo2={
+        <BlocoDeCodigo
+          codigo="for i in range(0, 10, 2):
+      print(i)"
+        />
+      }
+      li2b="a saída seria, 0, 2, 4, 6, 8"
+      li3="continue - pula para a próxima iteração, exemplo:"
+      codigo3={
+        <BlocoDeCodigo
+          codigo="for i in range(0, 10):
+      if i == 5:
+        continue
+      print(i)"
+        />
+      }
+      li3b="a saída seria, 0, 1, 2, 3, 4, 6, 7, 8, 9"
+      li4="break - para o loop, exemplo:"
+      codigo4={
+        <BlocoDeCodigo
+          codigo="for i in range(0, 10):
+      if i == 5:
+        break
+      print(i)"
+        />
+      }
+      li4b="a saída seria, 0, 1, 2, 3, 4"
+    />
+  );
+}
+
+function PythonStatement() {
+  return <Secao />;
+}
+
+function PythonInterpolation() {
+  return <Secao />;
+}
+
+function PythonBoasPraticas() {
+  return <Secao />;
+}
+
 function Ferramentas() {
   // COMPONENTE RESPONSÁVEL PELA ABA FERRAMENTAS
 
@@ -865,10 +1060,14 @@ function Secao(props) {
         <li>
           {props.li3}
           {props.codigo3}
+          {props.li3b}
+          {props.codigo3b}
         </li>
         <li>
           {props.li4}
           {props.codigo4}
+          {props.li4b}
+          {props.codigo4b}
         </li>
         <li>
           {props.li5}
@@ -1105,6 +1304,19 @@ function NavegacaoDeIndice(props) {
       {rota === "/documentacao/react/props" && <ReactProps />}
       {rota === "/documentacao/react/css" && <ReactCss />}
       {rota === "/documentacao/react/routes" && <ReactRoutes />}
+      {/* ROTAS DA ABA DOCUMENTACAO > PYTHON */}
+      {rota === "python" && <PythonIntroducao />}
+      {rota === "/documentacao/python" && <PythonIntroducao />}
+      {rota === "/documentacao/python/vscode" && <PythonVsCode />}
+      {rota === "/documentacao/python/nomenclaturas" && <PythonNomenclatura />}
+      {rota === "/documentacao/python/tiposdedados" && <PythonTiposDeDados />}
+      {rota === "/documentacao/python/operadores" && <PythonOperadores />}
+      {rota === "/documentacao/python/loops" && <PythonLoops />}
+      {rota === "/documentacao/python/statement" && <PythonStatement />}
+      {rota === "/documentacao/python/stringinterpolation" && (
+        <PythonInterpolation />
+      )}
+      {rota === "/documentacao/python/boaspraticas" && <PythonBoasPraticas />}
     </>
   );
 }
