@@ -684,15 +684,89 @@ function PythonLoops() {
 }
 
 function PythonStatement() {
-  return <Secao />;
+  return (
+    <Secao
+      titulo="Statement"
+      li1="
+  if - se for verdadeiro, faça isso, exemplo:"
+      codigo1={
+        <BlocoDeCodigo
+          codigo="if True:
+  print('Vai imprimir isso')"
+        />
+      }
+      li1b="a saída seria: 'Vai imprimir isso'. E não é preciso parênteses para o if, mas é preciso para o else e elif"
+      li2="
+  elif - o mesmo que else if, se não for aquilo, mas for isso faça isso, exemplo:"
+      codigo2={
+        <BlocoDeCodigo
+          codigo="
+      if(0 >10):
+      print('0 é maior que 10')
+      elif(10>0):
+      print('10 é maior que 0')"
+        />
+      }
+      li2b="a saída seria: '10 é maior que 0'"
+      li3=" else - se não for aquilo, faça isso, exemplo:"
+      codigo3={
+        <BlocoDeCodigo
+          codigo="if(0 >10):
+  print('0 é maior que 10')
+else:
+  print('10 é maior que 0')"
+        />
+      }
+      li3b="a saída seria: '10 é maior que 0'"
+    />
+  );
 }
 
 function PythonInterpolation() {
-  return <Secao />;
+  return (
+    <Secao
+      titulo="String Interpolation"
+      li1="
+  f-string - é uma forma de interpolar strings, exemplo:"
+      codigo1={
+        <BlocoDeCodigo
+          codigo="nome = 'João'
+idade = 20 
+print(f'Olá, meu nome é {nome} e tenho {idade} anos')"
+        />
+      }
+      li1b="a saída seria: 'Olá, meu nome é João e tenho 20 anos'"
+      li2="
+  format - é uma forma de interpolar strings, exemplo:"
+      codigo2={
+        <BlocoDeCodigo
+          codigo="nome = 'João'
+idade = 20
+print('Olá, meu nome é {} e tenho {} anos'.format(nome, idade))"
+        />
+      }
+      li2b="a saída seria: 'Olá, meu nome é João e tenho 20 anos'"
+      li3="é possível alterar a ordem dos parâmetros usando o número de índice, exemplo:"
+      codigo3={
+        <BlocoDeCodigo
+          codigo="nome = 'João'
+idade = 20 
+print('Olá, meu nome é {1} e tenho {0} anos'.format(nome, idade))"
+        />
+      }
+      li3b="a saída seria: 'Olá, meu nome é 20 e tenho João anos'"
+    />
+  );
 }
 
 function PythonBoasPraticas() {
-  return <Secao />;
+  return (
+    <Secao
+      titulo="Boas práticas"
+      li1="Nome de variáveis no python normalmente usam o padrão snake_case, ou seja, letras minúsculas e separadas por underline, exemplo:"
+      codigo1={<BlocoDeCodigo codigo="nome_completo, nome, peso_do_aluno." />}
+    />
+  );
 }
 
 function Ferramentas() {
