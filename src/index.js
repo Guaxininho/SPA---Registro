@@ -522,6 +522,8 @@ function DocPython() {
       rota8="/documentacao/python/stringinterpolation"
       nome9="Boas práticas"
       rota9="/documentacao/python/boaspraticas"
+      nome10="Funções"
+      rota10="/documentacao/python/funcoes"
     />
   );
 }
@@ -765,6 +767,22 @@ function PythonBoasPraticas() {
       titulo="Boas práticas"
       li1="Nome de variáveis no python normalmente usam o padrão snake_case, ou seja, letras minúsculas e separadas por underline, exemplo:"
       codigo1={<BlocoDeCodigo codigo="nome_completo, nome, peso_do_aluno." />}
+    />
+  );
+}
+
+function PythonFuncoes() {
+  return (
+    <Secao
+      li1="No python existem funções built in e módulos, as funções built in já vem com a linguagem e podem ser usadas normalmente, já os métodos devem ser importados. Exemplo de built in:"
+      codigo1={<BlocoDeCodigo codigo="input('Digite seu nome:')" />}
+      li1b="A função input já está no python e não precisa ser importada, ela retorna uma string com o que for preenchido nela quando o programa rodar. Já um módulo deve ser importado, exemplo:"
+      codigo1b={
+        <BlocoDeCodigo
+          codigo="import random 
+      random()"
+        />
+      }
     />
   );
 }
@@ -1124,6 +1142,8 @@ function Secao(props) {
           {props.codigo1}
           {props.li1b}
           {props.codigo1b}
+          {props.li1c}
+          {props.codigo1c}
         </li>
         <li>
           {props.li2}
@@ -1391,6 +1411,7 @@ function NavegacaoDeIndice(props) {
         <PythonInterpolation />
       )}
       {rota === "/documentacao/python/boaspraticas" && <PythonBoasPraticas />}
+      {rota === "/documentacao/python/funcoes" && <PythonFuncoes />}
     </>
   );
 }
