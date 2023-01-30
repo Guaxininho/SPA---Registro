@@ -66,6 +66,29 @@ import construcao from "./img/construcao.png";
 import testecurso from "./img/testecurso.jpeg";
 import copiarIMG from "./img/clipboardIMG.png";
 import copiarIMGcheck from "./img/clipboardIMGcheck.png";
+import crashCurso from "./img/cursos/crash.jpg";
+import phpCurso from "./img/cursos/php.jpg";
+import javascriptCurso from "./img/cursos/javascript.jpg";
+import advancedcss from "./img/cursos/advancedcss.jpg";
+import gitCurso from "./img/cursos/git.jpg";
+import angularCurso from "./img/cursos/angular.jpg";
+import nodeCurso from "./img/cursos/node.jpg";
+import logicaUmCurso from "./img/cursos/logicaUm.jpg";
+import logicaDoisCurso from "./img/cursos/logicaDois.jpg";
+import timer from "./img/timer.png";
+import timer2 from "./img/timer2.png";
+import arquiteturaCurso from "./img/cursos/arquitetura.jpg";
+import linuxUm from "./img/cursos/linuxUm.jpg";
+import htmlCurso from "./img/cursos/html.jpg";
+import jsweb from "./img/cursos/jsweb.jpg";
+import gitgithub from "./img/cursos/gitgithub.jpg";
+import arqcss from "./img/cursos/arqcss.jpg";
+import jsarr from "./img/cursos/jsarr.jpg";
+import jsobj from "./img/cursos/jsobj.jpg";
+import jstype from "./img/cursos/jstype.jpg";
+import layoutR from "./img/cursos/layoutR.jpg";
+import Pyinicio from "./img/cursos/Pyinicio.jpg";
+import sasssint from "./img/cursos/sasssint.jpg";
 
 const root = ReactDOM.createRoot(document.getElementById("root")); // AQUI É ONDE O REACT DOM É RENDERIZADO
 root.render(
@@ -138,7 +161,7 @@ function Navegacao() {
             <Link to="/ferramentas">Ferramentas</Link>
           </button>
           <button>
-            <Link to="/certificados">Certificados</Link>
+            <Link to="/certificados">Cursos</Link>
           </button>
           <button>
             <Link to="/portfolio">Portfólio</Link>
@@ -1496,30 +1519,215 @@ function Certificados() {
         titulo="Build Responsive Real-World Websites with HTML and CSS"
         autor="Jonas Schmedtmann"
         completo="100"
+        hora="37.5"
+        concluido="sim"
       />
       <Curso
-        img={testecurso}
-        titulo="The Complete Javascript Course 2023: From Zero to Expert!"
+        img={crashCurso}
+        titulo="Crash Course: Build a Full-Stack Web App in a Weekend!"
         autor="Jonas Schmedtmann"
-        completo="95"
+        completo="65"
+        hora="12.5"
+      />
+      <Curso
+        img={phpCurso}
+        titulo="PHP for Beginners - Become a PHP Master - CMS Project"
+        autor="Edwin Diaz"
+        completo="10"
+        hora="37"
+      />
+      <Curso
+        img={javascriptCurso}
+        titulo="The Complete JavaScript Course 2023: From Zero to Expert!"
+        autor="Jonas Schmedtmann"
+        completo="100"
+        hora="69"
+      />
+      <Curso
+        img={advancedcss}
+        titulo="Advanced CSS and Sass: Flexbox, Grid, Animations and More!"
+        autor="Jonas Schmedtmann"
+        completo="45"
+        hora="28"
+      />
+      <Curso
+        img={gitCurso}
+        titulo="Git e GitHub do básico ao avançado (c/ gist e GitHub Pages)"
+        autor="Matheus Battisti"
+        completo="25"
+        hora="8.5"
+      />
+      <Curso
+        img={angularCurso}
+        titulo="Angular - The Complete Guide (2023 Edition)"
+        autor="Maximilian Schwarzmüller"
+        completo="5"
+        hora="34.5"
+      />
+      <Curso
+        img={nodeCurso}
+        titulo="Node.js, Express, MongoDB & More: The Complete Bootcamp 2023"
+        autor="Jonas Schmedtmann"
+        completo="5"
+        hora="42"
+      />
+      <Curso
+        img={logicaUmCurso}
+        titulo="Lógica de programação: comece em lógica com o jogo Pong e Javascript"
+        autor="Guilherme Lima"
+        completo="100"
+        hora="6"
+      />
+
+      <Curso
+        img={logicaDoisCurso}
+        titulo="Lógica de programação: laços e listas com Javascript"
+        autor="Guilherme Lima"
+        completo="100"
+        hora="4"
+      />
+      <Curso
+        img={arquiteturaCurso}
+        titulo="Arquitetura de computadores: por trás de como seu programa funciona"
+        autor="Andrew Ijano Lopes"
+        completo="100"
+        hora="8"
+      />
+      <Curso
+        img={htmlCurso}
+        titulo="HTML5 e CSS3 parte 1: crie uma página da Web"
+        autor="Pedro Marins"
+        completo="100"
+        hora="8"
+      />
+      <Curso
+        img={htmlCurso}
+        titulo="HTML5 e CSS3 parte 2: posicionamento, listas e navegação"
+        autor="Pedro Marins"
+        completo="100"
+        hora="8"
+      />
+      <Curso
+        img={htmlCurso}
+        titulo="HTML5 e CSS3 parte 3: trabalhando com formulários e tabelas"
+        autor="Pedro Marins"
+        completo="100"
+        hora="8"
+      />
+      <Curso
+        img={htmlCurso}
+        titulo="HTML5 e CSS3 parte 4: avançando no CSS"
+        autor="Pedro Marins"
+        completo="100"
+        hora="8"
+      />
+      <Curso
+        img={jsweb}
+        titulo="JavaScript para Web: Crie páginas dinâmicas"
+        autor="Vanessa Me Tonini"
+        completo="100"
+        hora="10"
+      />
+      <Curso
+        img={gitgithub}
+        titulo="Git e GitHub: repositório, commit e versões"
+        autor="Guilherme Lima"
+        completo="100"
+        hora="8"
+      />
+      <Curso
+        img={arqcss}
+        titulo="Arquitetura CSS: descomplicando os problemas"
+        autor="Matheus Castiglioni"
+        completo="100"
+        hora="8"
+      />
+      <Curso
+        img={linuxUm}
+        titulo="Linux I: conhecendo e utilizando o terminal"
+        autor="Guilherme Silveira"
+        completo="100"
+        hora="4"
+      />
+      <Curso
+        img={jsarr}
+        titulo="JavaScript: Arrays"
+        autor="Juliana Amoasei e Leonardo Sartorello"
+        completo="100"
+        hora="10"
+      />
+      <Curso
+        img={jsobj}
+        titulo="JavaScript: objetos"
+        autor="André Bessa e Juliana Amoasei"
+        completo="100"
+        hora="10"
+      />
+      <Curso
+        img={jstype}
+        titulo="JavaScript: tipos, variáveis e funções"
+        autor="Juliana Amoasei e Leonardo Sartorello"
+        completo="100"
+        hora="12"
+      />
+      <Curso
+        img={layoutR}
+        titulo="Layouts Responsivos: trabalhando com layouts mobile"
+        autor="Matheus Alberto"
+        completo="100"
+        hora="7"
+      />
+      <Curso
+        img={Pyinicio}
+        titulo="Python: começando com a linguagem"
+        autor="Nico Steppat"
+        completo="100"
+        hora="12"
+      />
+      <Curso
+        img={sasssint}
+        titulo="SASS: CSS sintaticamente espetacular"
+        autor="Guilherme Lima"
+        completo="100"
+        hora="8"
       />
     </div>
   );
 }
 
 function Curso(props) {
+  let [background, setBackground] = useState("#f2f2ee");
+  let [colored, setColored] = useState("#4d4f4f");
+  let [timerIMG, setTimerIMG] = useState(timer);
+
   return (
     <a className="boxCurso">
       <img src={props.img} />
+      <div
+        onLoad={() => {
+          if (props.completo === "100") {
+            setBackground("#2b8a3e");
+            setColored("#f2f2ee");
+            setTimerIMG(timer2);
+          }
+        }}
+        style={{ backgroundColor: background }}
+        className="FlexHora"
+      >
+        <img src={timerIMG} />
+        <p style={{ color: colored }}>{`${props.hora} horas`}</p>
+      </div>
       <h1>{props.titulo}</h1>
       <h4>{props.autor}</h4>
       <figure className="barravazia">
         <figure
           className="barracheia"
-          style={{ width: `${props.completo}%` }}
+          style={{ width: `${props.completo}%`, backgroundColor: background }}
         ></figure>
       </figure>
-      <p>{`${props.completo}% concluído`}</p>
+      <div className="FlexP">
+        <p>{`${props.completo}% concluído`}</p>
+      </div>
     </a>
   );
 }
