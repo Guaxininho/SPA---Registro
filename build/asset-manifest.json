@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f9de2130.css",
+    "main.js": "/static/js/main.c12d4924.js",
+    "static/media/foto.jpg": "/static/media/foto.bf8994bb01ea3b2d67b8.jpg",
+    "static/media/construcao.png": "/static/media/construcao.ce0c5c63dfa417493a18.png",
+    "static/media/testecurso.jpeg": "/static/media/testecurso.d15334c8063c076daff3.jpeg",
+    "index.html": "/index.html",
+    "main.f9de2130.css.map": "/static/css/main.f9de2130.css.map",
+    "main.c12d4924.js.map": "/static/js/main.c12d4924.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9de2130.css",
+    "static/js/main.c12d4924.js"
+  ]
+}
