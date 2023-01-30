@@ -64,6 +64,8 @@ import shadow from "./img/shadow.png";
 import components from "./img/components.png";
 import construcao from "./img/construcao.png";
 import testecurso from "./img/testecurso.jpeg";
+import copiarIMG from "./img/clipboardIMG.png";
+import copiarIMGcheck from "./img/clipboardIMGcheck.png";
 
 const root = ReactDOM.createRoot(document.getElementById("root")); // AQUI É ONDE O REACT DOM É RENDERIZADO
 root.render(
@@ -341,20 +343,32 @@ function ReactRegras() {
   return (
     <Secao
       titulo="regras"
-      li1="para o react entender que é um componente, a função deve ter nome maiúsculo e retornar um JSX"
+      li1="para o react entender o que é um componente, a função deve ter nome maiúsculo e retornar um JSX. Exemplo:"
+      codigo1={<BlocoDeCodigo codigo={`<App></App>`} />}
       li2="no react é obrigatório fechar a tag"
       codigo2={<BlocoDeCodigo codigo="&lt;h1&gt;Hello World!&lt;/h1&gt;" />}
-      l2b="mas normalmente vemos a tag de fechamento omitida"
+      li2b="mas normalmente vemos a tag de fechamento omitida"
       codigo2b={<BlocoDeCodigo codigo="&lt;h1/&gt;" />}
-      li3="isso incui tudo que no html não era fechado, como as tags img,
-              input, br e etc. No React, TUDO, literalmente tudo tem que ser
-              fechado."
-      li4="JSX sempre deve retornar apenas um elemento, então se for mais de um elemento deve estar encapsulado em apenas um. Se não quiser que este elemento apareça no html, pode usar um react fragment"
+      li2c="a regra se aplica para tudo que no html não era fechado, como as tags img, input, br e etc. No React, TUDO, literalmente tudo tem que ser fechado."
+      li3="JSX sempre deve retornar apenas um elemento, então se for mais de um elemento deve estar encapsulado em apenas um. Se não quiser que este elemento apareça no html, pode usar um react fragment"
+      codigo3={
+        <BlocoDeCodigo
+          codigo={`<section>
+  <h1>Titulo</h1>
+  <p>Neste exemplo o que envolve tudo é uma section</p>
+</section>`}
+        />
+      }
       li5="Para usar javascript dentro do JSX, usa-se chaves"
       codigo5={<BlocoDeCodigo codigo="&lt;h1&gt;{1 + 1}&lt;/h1&gt;" />}
-      li6="Para usar eventos no JSX, usa-se o camelCase"
+      li6="Para usar eventos no JSX, usa-se o camelCase e se não quiser que ele seja executado assim que a página é renderizada, é necessário usar uma callback function"
       codigo6={
-        <BlocoDeCodigo codigo="&lt;button onClick={funcao}&gt;Clique&lt;/button&gt;" />
+        <BlocoDeCodigo
+          codigo={`<button onClick={
+()=>{alert("voce me clicou")}>
+  Clique
+</button>}`}
+        />
       }
       li7="Para usar atributos (classes para CSS) no JSX, usa-se o camelCase e nome não é class, mas className"
       codigo7={
@@ -370,12 +384,12 @@ function ReactIniciando() {
       titulo="iniciando"
       li1="escolha o diretório pelo terminal e use o comando"
       codigo1={<BlocoDeCodigo codigo="npx create-react-app nomedoprojeto" />}
-      li2="mude para a pasta do projeto após a criação e use o comando"
+      li2="mude para a pasta do projeto após a criação e use code . para abrir o projeto no VSCode, assim:"
       codigo2={<BlocoDeCodigo codigo="code ." />}
-      li2b="para abrir o projeto no VSCode, em seguida use este comando para iniciar o server"
-      codigo2b={<BlocoDeCodigo codigo="npm start" />}
-      li3="exclua de dentro da pasta src: app.css, app.js, app.test.js, index.css, logo.svg, reportWebVitals.js e setupTests.js, deixando apenas o index.js"
-      li4="no index.js, apague o import do 'index.css', o import App from './App' e o import reportWebVitals from './reportWebVitals', exclua também o componente <App /> e o reportWebVitals(), a partir daqui é possível criar o projeto do zero, criando seu componente dentro de <React.StrictMode>"
+      li3="em seguida use este comando para iniciar o server"
+      codigo3={<BlocoDeCodigo codigo="npm start" />}
+      li4="exclua de dentro da pasta src: app.css, app.js, app.test.js, index.css, logo.svg, reportWebVitals.js e setupTests.js, deixando apenas o index.js"
+      li5="no index.js, apague o import do 'index.css', o import App from './App' e o import reportWebVitals from './reportWebVitals', exclua também o componente <App /> e o reportWebVitals(), a partir daqui é possível criar o projeto do zero, criando seu componente dentro de <React.StrictMode>"
     />
   );
 }
@@ -387,19 +401,20 @@ function ReactComponentes() {
       li1="É possível definir variáveis fora e dentro do componente, mas se for definida dentro, só pode ser usada ali, e se for definida fora, pode ser usada em qualquer lugar do componente. Variáveis definidas fora do componente são globais, e variáveis definidas dentro do componente são locais."
       codigo1={
         <BlocoDeCodigo
-          codigo={`const nomeUm = 'João'; // variável global
+          codigo={`const nomeUm = "João";
 
-                function App(){
-                  const nome = 'Maria'; // variável local do componente
-                  return(
-                    <div>
-                    <h1>Hello {nome}</h1> // vai sair HELLO MARIA
-                    <h1>Hello {nomeUm}</h1> // vai sair HELLO JOAO
-                    </div>
-                )}`}
+function App() {
+  const nomeDois = "Maria";
+  return (
+    <div>
+      <h1>Hello {nomeUm}</h1>
+      <h1>Hello {nomeDois}</h1>
+    </div>
+  );
+}`}
         />
       }
-      li1b="Sempre é preciso retornar um valor, não é possível retornar uma definição de variável por exemplo. Se for preciso retornar uma variável, é preciso retornar o valor dela."
+      li1b="Neste exemplo, nomeUm é uma variável global e nomeDois uma variável local. Lembrando que sempre é preciso retornar um valor, não é possível retornar uma definição de variável por exemplo. Se for preciso retornar uma variável, é preciso retornar o valor dela."
     />
   );
 }
@@ -411,29 +426,27 @@ function ReactProps() {
       li1="props é passado como parâmetro da função do componente, e é um objeto. Portanto, quando você usa a contação de . você está criando uma chave que receberá um valor:"
       codigo1={
         <BlocoDeCodigo
-          codigo={`<App nome="Maria" /> // aqui é passado o valor da propriedade nome
-                  
-                function App(props){
-                return(
-                  <div>
-                  <h1>Hello {props.nome}</h1> // vai sair Hello Maria
-                  </div>
-              )}`}
+          codigo={`<App nome="Maria" />
+
+function App(props){
+  return(
+    <div>
+      <h1>Hello {props.nome}</h1>
+    </div>
+  );
+}`}
         />
       }
-      li2="Além da props, existe a props.children. A propChildren é tudo que renderiza entre a abertura e fechamento do componente, não são as propriedades, mas o que realmente vem dentro do componente. Exemplo:"
-      codigo2={<BlocoDeCodigo codigo={`<App>Samuel</App>`} />}
-      li2b="Aqui Samuel é uma props.children. A propriedade children é um objeto, e pode ser acessada com props.children. No componente ficaria assim:"
-      codigo2b={
+      li1b="Neste exemplo a saída será: Hello Maria. Para ficar mais fácil a vizualização você pode vizualizar assim:"
+      codigo1b={
         <BlocoDeCodigo
-          codigo={`function App(props){
-                return(
-                  <div>
-                  <h1>Hello {props.children}</h1> // vai sair Hello Samuel
-                  </div>
-              )}`}
+          codigo="{
+        nome: Maria
+      }"
         />
       }
+      li2="Além da props, existe a props.children. A props.children é tudo que renderiza entre a abertura e fechamento do componente, não são as propriedades, mas o que realmente vem dentro do componente. Exemplo:"
+      codigo2={<BlocoDeCodigo codigo={`<App>Samuel</App>`} />}
     />
   );
 }
@@ -459,7 +472,8 @@ function ReactRoutes() {
       codigo1={
         <BlocoDeCodigo
           codigo={`const[Inicial, setInicial] = useState(true);
-              {Inicial ? <ConteudoInicial /> : null}`}
+
+{Inicial ? <ConteudoInicial /> : null}`}
         />
       }
       li1b="se inicial for true renderiza o componente <ConteudoInicial/> se não, não renderiza nada. E podemos setar o valor da variável com um botão, por exemplo:"
@@ -481,11 +495,11 @@ function ReactRoutes() {
       codigo3={
         <BlocoDeCodigo
           codigo={`<BrowserRouter>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/sobre" element={<Sobre />} />
-                </Routes>
-              </BrowserRouter>`}
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/sobre" element={<Sobre />} />
+  </Routes>
+</BrowserRouter>`}
         />
       }
       li4="O Route também pode receber uma propriedade chamada exact, que faz com que a rota só seja renderizada se o caminho for exatamente igual ao path. Exemplo:"
@@ -575,17 +589,16 @@ function PythonTiposDeDados() {
       codigo1={<BlocoDeCodigo codigo='nome = "João"' />}
       li1b="A tipagem é dinâmica, ou seja, o tipo do dado já é definido automaticamente quando atribuimos um valor, não é preciso dizer se é uma string, um int ou um float, por exemplo. Para saber o tipo de dado de uma variável, basta usar a função type(), exemplo:"
       codigo1b={<BlocoDeCodigo codigo="print(type(nome))" />}
-      li2="Dentre os tipos possíveis, temos, int, float, str, bool, list e etc."
-      li3="Int - são números inteiros, exemplo:"
-      codigo3={<BlocoDeCodigo codigo="idade = 20" />}
-      li4="Float - são números decimais, exemplo:"
-      codigo4={<BlocoDeCodigo codigo="altura = 1.80" />}
-      li5="Str - são strings, nomes, exemplo:"
-      codigo5={<BlocoDeCodigo codigo='nome = "João"' />}
-      li6="Bool - são booleanos, são valores que podem ser verdadeiro ou falso, exemplo:"
-      codigo6={<BlocoDeCodigo codigo="ativo = True" />}
-      li7="List - são listas, são coleções de dados, exemplo:"
-      codigo7={<BlocoDeCodigo codigo='lista = ["João", 20, 1.80]' />}
+      li2="Dentre os tipos possíveis, temos, int para números inteiros:"
+      codigo2={<BlocoDeCodigo codigo="idade = 20" />}
+      li2b="Float para números flutuantes ou decimais:"
+      codigo2b={<BlocoDeCodigo codigo="altura = 1.80" />}
+      li2c="Strings para nomes:"
+      codigo2c={<BlocoDeCodigo codigo='nome = "João"' />}
+      li2d="Bool para booleanos, são valores que podem ser verdadeiro ou falso, exemplo:"
+      codigo2d={<BlocoDeCodigo codigo="ativo = True" />}
+      li2e="List - são listas, são coleções de dados, exemplo:"
+      codigo2e={<BlocoDeCodigo codigo='lista = ["João", 20, 1.80]' />}
     />
   );
 }
@@ -597,46 +610,59 @@ function PythonOperadores() {
       li1="Operadores aritméticos - São operadores que fazem operações matemáticas, exemplo:"
       codigo1={
         <BlocoDeCodigo
-          codigo="+ soma 
-      - subtração
-      * multiplicação 
-      / divisão
-      ** potenciação 
-      // divisão inteira
-      % resto da divisão"
+          codigo={`+ soma 
+- subtração
+* multiplicação 
+/ divisão
+** potenciação 
+// divisão inteira
+% resto da divisão`}
         />
       }
       li2="Operadores de comparação - São operadores que fazem comparações, exemplo"
       codigo2={
         <BlocoDeCodigo
-          codigo="== (igual a)
-      != (diferente de)
-      > (maior que)
-      < (menor que)
-      >= (maior ou igual a)
-      <= (menor ou igual a)"
+          codigo={`== (igual a)
+!= (diferente de)
+> (maior que)
+< (menor que)
+>= (maior ou igual a)
+<= (menor ou igual a)`}
         />
       }
       li3="Operadores lógicos - São operadores que fazem comparações lógicas, exemplo:"
-      codigo3={<BlocoDeCodigo codigo="and (e), or (ou), not (não)" />}
+      codigo3={
+        <BlocoDeCodigo
+          codigo={`and (e)
+or (ou)
+not (não)`}
+        />
+      }
       li4="Operadores de atribuição - São operadores que atribuem valores, exemplo:"
       codigo4={
         <BlocoDeCodigo
-          codigo="= (atribuição)
-        += (soma e atribuição)
-        -= (subtração e atribuição)
-        *= (multiplicação e atribuição)
-        /= (divisão e atribuição)
-        **= (potenciação e atribuição)
-        //= (divisão inteira e atribuição)
-        %= (resto da divisão e atribuição)"
+          codigo={`= (atribuição)
++= (soma e atribuição)
+-= (subtração e atribuição)
+*= (multiplicação e atribuição)
+/= (divisão e atribuição)
+**= (potenciação e atribuição)
+%= (resto da divisão e atribuição`}
         />
       }
       li5="Operadores de identidade - São operadores que verificam se os valores são iguais, exemplo:"
-      codigo5={<BlocoDeCodigo codigo="is (igual a), is not (diferente de)" />}
+      codigo5={
+        <BlocoDeCodigo
+          codigo="is (igual a)
+is not (diferente de)"
+        />
+      }
       li6="Operadores de associação - São operadores que verificam se um valor está contido em outro, exemplo:"
       codigo6={
-        <BlocoDeCodigo codigo="in (está contido), not in (não está contido)" />
+        <BlocoDeCodigo
+          codigo="in (está contido)
+not in (não está contido)"
+        />
       }
     />
   );
@@ -649,35 +675,35 @@ function PythonLoops() {
       li1="while - enquanto for verdadeiro, faça isso, exemplo:"
       codigo1={
         <BlocoDeCodigo
-          codigo='while True:
-      print("Vai travar o computador de tanto repetir")'
+          codigo={`while True:
+    print("Vai travar o computador de tanto repetir")`}
         />
       }
       li2="for range in: - é possível definir um range com os 2 primeiros paramêtros e o número não chega ao segundo parâmetro. de 0 a 10 chegaria a 9. Ainda é possível definir um terceiro parâmetro que é o passo, se quiser de 2 em 2 por exemplo, é só colocar 2 no terceiro parâmetro"
       codigo2={
         <BlocoDeCodigo
-          codigo="for i in range(0, 10, 2):
-      print(i)"
+          codigo={`for i in range(0, 10, 2):
+    print(i)`}
         />
       }
       li2b="a saída seria, 0, 2, 4, 6, 8"
       li3="continue - pula para a próxima iteração, exemplo:"
       codigo3={
         <BlocoDeCodigo
-          codigo="for i in range(0, 10):
-      if i == 5:
+          codigo={`for i in range(0, 10):
+    if i == 5:
         continue
-      print(i)"
+        print(i)`}
         />
       }
       li3b="a saída seria, 0, 1, 2, 3, 4, 6, 7, 8, 9"
       li4="break - para o loop, exemplo:"
       codigo4={
         <BlocoDeCodigo
-          codigo="for i in range(0, 10):
-      if i == 5:
+          codigo={`for i in range(0, 10):
+    if i == 5:
         break
-      print(i)"
+        print(i)`}
         />
       }
       li4b="a saída seria, 0, 1, 2, 3, 4"
@@ -693,30 +719,29 @@ function PythonStatement() {
   if - se for verdadeiro, faça isso, exemplo:"
       codigo1={
         <BlocoDeCodigo
-          codigo="if True:
-  print('Vai imprimir isso')"
+          codigo={`if True:
+    print('Vai imprimir isso')`}
         />
       }
-      li1b="a saída seria: 'Vai imprimir isso'. E não é preciso parênteses para o if, mas é preciso para o else e elif"
+      li1b="a saída seria: 'Vai imprimir isso'. E não é preciso parênteses para o if"
       li2="
   elif - o mesmo que else if, se não for aquilo, mas for isso faça isso, exemplo:"
       codigo2={
         <BlocoDeCodigo
-          codigo="
-      if(0 >10):
-      print('0 é maior que 10')
-      elif(10>0):
-      print('10 é maior que 0')"
+          codigo={`if (0 > 10):
+    print('0 é maior que 10')
+elif (10 > 0):
+    print('10 é maior que 0')`}
         />
       }
       li2b="a saída seria: '10 é maior que 0'"
       li3=" else - se não for aquilo, faça isso, exemplo:"
       codigo3={
         <BlocoDeCodigo
-          codigo="if(0 >10):
-  print('0 é maior que 10')
+          codigo={`if (0 >10):
+    print('0 é maior que 10')
 else:
-  print('10 é maior que 0')"
+    print('10 é maior que 0')`}
         />
       }
       li3b="a saída seria: '10 é maior que 0'"
@@ -779,10 +804,12 @@ function PythonFuncoes() {
       li1b="A função input já está no python e não precisa ser importada, ela retorna uma string com o que for preenchido nela quando o programa rodar. Já um módulo deve ser importado, exemplo:"
       codigo1b={
         <BlocoDeCodigo
-          codigo="import random 
-      random()"
+          codigo={`import random
+
+print(random.randrange(1, 11))`}
         />
       }
+      li1c="Já o método random gera números pseudo aleatórios e só funciona se for importado."
     />
   );
 }
@@ -1150,6 +1177,10 @@ function Secao(props) {
           {props.codigo2}
           {props.li2b}
           {props.codigo2b}
+          {props.li2c}
+          {props.codigo2c}
+          {props.li2d}
+          {props.codigo2d}
         </li>
         <li>
           {props.li3}
@@ -1417,10 +1448,22 @@ function NavegacaoDeIndice(props) {
 }
 
 function BlocoDeCodigo(props) {
-  // COMPONENTE RESPONSÁVEL PELOS BLOCOS DE CÓDIGO
+  let [botaoClip, setBotaoclip] = useState(copiarIMG);
+  let [valor, setValor] = useState(props.codigo);
   return (
     <pre className="BlocoDeCodigo">
-      <code>{props.codigo}</code>
+      <code className="codigoInterno">{props.codigo}</code>
+      <button
+        onClick={() => {
+          navigator.clipboard.writeText(valor);
+          setBotaoclip(copiarIMGcheck);
+          setTimeout(() => {
+            setBotaoclip(copiarIMG);
+          }, 500);
+        }}
+      >
+        <img src={botaoClip} />
+      </button>
     </pre>
   );
 }
