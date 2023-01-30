@@ -1,7 +1,7 @@
 <h1>&#128462; Registro</h1>
 
 <h3>Este é meu site pessoal, ele é feito inteiramente em ReactJS e está em constante desenvolvimento. 
-<p>Para ver a versão atual em funcionamento: <a href="https://registrov1.netlify.app/">Clique aqui</a></p>
+<p>Para ver a versão atual em funcionamento: <a href="https://registrovc.netlify.app/">Clique aqui</a></p>
 Nele você encontrará:</h3>
 <ul>
 <li><h4><a href="#navegacao">Navegação</a> - funcionamento da navegação do site</h4></li>
