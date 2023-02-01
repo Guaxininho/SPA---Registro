@@ -620,8 +620,17 @@ function PythonTiposDeDados() {
       codigo2c={<BlocoDeCodigo codigo='nome = "João"' />}
       li2d="Bool para booleanos, são valores que podem ser verdadeiro ou falso, exemplo:"
       codigo2d={<BlocoDeCodigo codigo="ativo = True" />}
-      li2e="List - são listas, são coleções de dados, exemplo:"
-      codigo2e={<BlocoDeCodigo codigo='lista = ["João", 20, 1.80]' />}
+      li2e="Listas para sequências, que são usadas com colchete, exemplo:"
+      codigo2e={<BlocoDeCodigo codigo="[1,2,3,4,5]" />}
+      li2f="esta é uma lista de números, porém elas não são as únicas sequências no python, as strings se encaixam como sequência e usam muitos dos métodos de listas, a tupla também, que é uma lista que não pode ser alterada, nela usamos parênteses:"
+      codigo2f={<BlocoDeCodigo codigo="(1,2,3,4,5)" />}
+      li2g="Lembrando que é possível converter de lista para tupla e vice-versa, para isso é só usar o tuple() e o list(), onde no parâmetro entra o que quer converter, exemplo:"
+      codigo2g={
+        <BlocoDeCodigo
+          codigo="variavel_lista = [1,2,3,4,5]
+tuple(variavel_lista)"
+        />
+      }
     />
   );
 }
@@ -1204,6 +1213,12 @@ function Secao(props) {
           {props.codigo2c}
           {props.li2d}
           {props.codigo2d}
+          {props.li2e}
+          {props.codigo2e}
+          {props.li2f}
+          {props.codigo2f}
+          {props.li2g}
+          {props.codigo2g}
         </li>
         <li>
           {props.li3}
@@ -1732,12 +1747,10 @@ function Curso(props) {
   );
 }
 
-function Certificadohorizontal() {
+function Certificadohorizontal(props) {
   return (
     <div className="Certificadohorizontal">
-      <h1>Curso de Javascript Completo 2021</h1>
-      <h4>Jonas Schmedtmann</h4>
-      {/* <img src={certificado} /> */}
+      <embed src={props.pdf} type="application/pdf" />
     </div>
   );
 }
