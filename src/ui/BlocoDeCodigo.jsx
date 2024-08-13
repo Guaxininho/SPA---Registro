@@ -1,7 +1,7 @@
 import {React, useState} from 'react'
-import copiar from '../../assets/copiar.png'
-import copiarcheck from '../../assets/copiarcheck.png'
-import {StyledBlocoDeCodigo} from '../../styles/BlocoDeCodigo.js'
+import copiar from '../assets/copiar.png'
+import copiarcheck from '../assets/copiarcheck.png'
+import {StyledBlocoDeCodigo} from '../styles/BlocoDeCodigo.js'
 
 
 function BlocoDeCodigo({codigo}) {

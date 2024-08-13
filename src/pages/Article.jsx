@@ -1,5 +1,5 @@
 import {React, useState} from 'react'
-import BlocoDeCodigo from '../../ui/BlocoDeCodigo/BlocoDeCodigo'
+import BlocoDeCodigo from '../ui/BlocoDeCodigo'
 
 const topicos = [
   {

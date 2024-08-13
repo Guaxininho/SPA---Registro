@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
 
 body {
   box-sizing: border-box;
+  background-color: #e9ecef;
 }
 
 html {
@@ -19,11 +20,11 @@ html {
 }
 
 // DEFAULT TO HERE
-body{
-    width: 96%;
-    background-color: #f2f2ee;
+main{
+    width: 95%;
+    
     margin: 0 auto;
 }
-`
+`;
 
-export default GlobalStyles ;
+export default GlobalStyles;

@@ -1,49 +1,50 @@
 import styled from "styled-components";
 
 export const StyledNotes = styled.section`
-    display: flex;
-    flex-direction: column;
-    gap: 4.5rem;
-  
-    h1 {
-      text-align: center;
-      text-transform: uppercase;
-      font-family: "Exo 2", sans-serif;
-      font-weight: 200;
-      font-size: 1.8rem;
-      letter-spacing: 0.2rem;
-      padding: 0 3rem;
-      line-height: 3.2rem;
+  display: grid;
+  position: relative;
+  grid-template: 1fr / 48rem 1fr 50rem;
+  gap: 4rem;
+
+  @keyframes entradaDePersonagem {
+    0% {
+      opacity: 0.9;
+      right: -20%;
     }
-    .flexIconesDeDocumentacao {
-      display: flex;
-      justify-content: space-evenly;
-      button {
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        img {
-          width: 5rem;
-          margin-bottom: 1rem;
-        }
-        h3 {
-          font-size: 1.6rem;
-          font-family: "Exo 2", sans-serif;
-          font-weight: 300;
-        }
-        a {
-          color: #212529;
-          text-decoration: none;
-        }
-      }
+    100% {
+      opacity: 1;
+      right: 0;
     }
-  
-  @media (max-width: 497px) {
-    
-      .flexIconesDeDocumentacao {
-        display: grid;
-        grid-template: 1fr 1fr / repeat(3, 1fr);
-        row-gap: 3rem;
-      }
   }
-`
+
+  .Lumina {
+    position: absolute;
+    animation: entradaDePersonagem 1s;
+    right: 0;
+    top: 0;
+
+    max-width: 48rem;
+  }
+  p {
+    max-width: 50rem;
+    font-family: "Exo 2", sans-serif;
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 4rem;
+    span {
+      font-weight: 400;
+    }
+    margin-bottom: 2rem;
+  }
+  .pesquisa {
+    width: 80%;
+  }
+  .gradeDeArtigos {
+    display: grid;
+    grid-template: repeat(2, 45rem) / repeat(auto-fill, minmax(30rem, 1fr));
+    gap: 2rem;
+  }
+  .MuiOutlinedInput-root {
+    font-size: 2rem;
+  }
+`;
