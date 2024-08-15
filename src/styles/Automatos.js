@@ -4,16 +4,25 @@ export const StyledAutomatos = styled.section`
   display: flex;
   gap: 8rem;
   aside {
-    min-width: 26rem;
+    min-width: 30rem;
     border-right: 2px solid #4d4f4f;
 
-    ul {
+    .ulGeral {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      list-style: none;
+      font-family: "Exo 2", sans-serif;
+      font-weight: 300;
+      font-size: 1.8rem;
+    }
+    /* ul {
       li {
         margin-bottom: 0.7rem;
-        list-style: none;
-        font-family: "Exo 2", sans-serif;
-        font-weight: 300;
-        font-size: 1.6rem;
+        
+        
+        
+        
         cursor: pointer;
       }
       .ulSecundária {
@@ -25,7 +34,7 @@ export const StyledAutomatos = styled.section`
           }
         }
       }
-    }
+    } */
   }
   article {
     span {

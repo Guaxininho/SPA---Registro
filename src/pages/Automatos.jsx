@@ -2,20 +2,25 @@ import React from "react";
 import automatoOne from "../assets/automatoOne.png";
 import automatoTwo from "../assets/automatoTwo.png";
 import { StyledAutomatos } from "../styles/Automatos";
+import BlocoAside from "../ui/BlocoAside";
+
+const midjourneyList = [
+  {
+    nome: "Instalação",
+  },
+  {
+    nome: "Utilizando imagine",
+  },
+];
 
 function Automatos() {
   return (
     <StyledAutomatos>
       <aside>
         <ul className="ulGeral">
-          <li>Introdução a sala de autômatos</li>
-          <li>
-            Midjourney
-            <ul className="ulSecundária">
-              <li>Instalação</li>
-              <li>Utilizando imagine</li>
-            </ul>
-          </li>
+          <BlocoAside Titulo={"Introdução a sala de autômatos"} />
+
+          <BlocoAside Titulo={"Midjourney"} itens={midjourneyList} />
         </ul>
       </aside>
       <article>
