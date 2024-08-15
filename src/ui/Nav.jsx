@@ -35,20 +35,20 @@ function Nav() {
       </div>
       <div className="flexDeNavegacao">
         <button onClick={() => setBotaoEmDestaque("documentacao")}>
-          <Link to="/artigos">Artigos</Link>
+          <Link to="/artigos">Biblioteca de Scripts</Link>
           <div
             className={botaoEmDestaque === "documentacao" ? "active" : ""}
           ></div>
         </button>
         <button onClick={() => setBotaoEmDestaque("ferramentas")}>
-          <Link to="/ferramentas">Projetos</Link>
+          <Link to="/automatos/introducao">Sala dos Autômatos</Link>
           <div
             className={botaoEmDestaque === "ferramentas" ? "active" : ""}
           ></div>
         </button>
 
         <button onClick={() => setBotaoEmDestaque("roadmap")}>
-          <Link to="/roadmap">Ferramentas</Link>
+          <Link to="/roadmap">Portal de Recursos</Link>
           <div className={botaoEmDestaque === "roadmap" ? "active" : ""}></div>
         </button>
         <button onClick={() => setBotaoEmDestaque("contato")}>

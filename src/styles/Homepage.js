@@ -13,7 +13,7 @@ export const StyledHomepage = styled.section`
   }
   // border: 1px solid red;
   display: grid;
-  grid-template: auto 1fr / 1fr 60rem;
+  grid-template: auto 1fr / 1fr 43rem;
   gap: 2.4rem;
   position: relative;
   h1 {
@@ -41,7 +41,7 @@ export const StyledHomepage = styled.section`
     animation: entradaDePersonagem 1s;
     grid-column: 2/3;
     grid-row: 1/3;
-    width: 60rem;
+    width: 43rem;
     justify-self: end;
     // border: 1px solid #4d4f4f;
     border-radius: 0.5rem;

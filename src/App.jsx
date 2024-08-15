@@ -9,6 +9,7 @@ import Construction from "./pages/Construction";
 import GlobalStyles from "./styles/GlobalStyles";
 import Nav from "./ui/Nav";
 import Article from "./pages/Article";
+import Automatos from "./pages/Automatos";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
             {/* Rotas da barra de navegação */}
             <Route path="/" exact element={<Homepage />} />
             <Route path="/artigos" exact element={<Notes />} />
-            <Route path="/ferramentas" exact element={<Tools />} />
+            <Route path="/automatos/introducao" exact element={<Automatos />} />
             <Route path="/certificados" exact element={<Courses />} />
             <Route path="/portfolio" exact element={<Construction />} />
             <Route path="/roadmap" exact element={<Construction />} />
